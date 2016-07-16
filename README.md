@@ -1,6 +1,6 @@
 # HDTableViewDataSource 中文文档
 
-![demo](media/demo.jpg)
+![demo](openSource.jpg)
 
 只需一行代码，快速为`UITableView`创建`Delegate`和`DataSource`。
 
