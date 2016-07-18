@@ -49,6 +49,21 @@
     };
 }
 
+- (HDTableSectionMaker * (^)(CGFloat))headerHeight{
+    return ^HDTableSectionMaker *(CGFloat height){
+        self.sectionData.headerHeight = height;
+        return self;
+    };
+}
+
+- (HDTableSectionMaker * (^)(CGFloat))footerHeight{
+    return ^HDTableSectionMaker *(CGFloat height){
+        self.sectionData.footerHeight = height;
+        return self;
+    };
+}
+
+
 - (HDTableSectionMaker * (^)(UIView * (^)()))headerView {
     return ^HDTableSectionMaker *(UIView * (^view)()) {
         self.sectionData.headerView = view();
@@ -66,21 +81,30 @@
 - (HDTableSectionMaker * (^)(NSInteger))hd_rowCount{
     return ^HDTableSectionMaker *(NSInteger rowCount){
         self.sectionData.rowCount = rowCount;
+        [self doCellMakerBlock];
         return self;
     };
 }
 
-- (HDTableSectionMaker * (^)(void (^)(HDTableCellMaker * cellMaker)))hd_cell{
-    return ^HDTableSectionMaker *(void (^cellMakerBlock)(HDTableCellMaker * cellMaker)){
+- (HDTableSectionMaker * (^)(CellMakeBlock))hd_cell{
+    return ^HDTableSectionMaker *(CellMakeBlock cellMakerBlock){
+        self.sectionData.cellMakeBlock = cellMakerBlock;
+        [self doCellMakerBlock];
+        return self;
+    };
+}
+
+-(void)doCellMakerBlock{
+    if (self.sectionData.rowCount>0&&self.sectionData.cellMakeBlock) {
         for (int i = 0; i<self.sectionData.rowCount; i++) {
             HDTableCellMaker * cellMaker = [[HDTableCellMaker alloc] initWithTableView:self.sectionData.tableView];
             cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.sectionData.section];
             cellMaker.cellData.data = self.sectionData.modelDatas[i];
-            cellMakerBlock(cellMaker);
+            self.sectionData.cellMakeBlock(cellMaker);
             [self.sectionData.cellDatas addObject:cellMaker.cellData];
         }
-        return self;
-    };
+    }
+ 
 }
 
 

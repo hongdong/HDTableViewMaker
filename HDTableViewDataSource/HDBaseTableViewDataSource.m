@@ -41,23 +41,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if(self.tableData.sectionDatas[(NSUInteger) section].headerView) {
-        return self.tableData.sectionDatas[(NSUInteger) section].headerView.frame.size.height;
-    } else if(self.tableData.sectionDatas[(NSUInteger) section].headerTitle) {
-        return 40;
-    } else {
-        return 0;
-    };
+    return self.tableData.sectionDatas[(NSUInteger) section].headerHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if(self.tableData.sectionDatas[(NSUInteger) section].footerView) {
-        return self.tableData.sectionDatas[(NSUInteger) section].footerView.frame.size.height;
-    } else if(self.tableData.sectionDatas[(NSUInteger) section].footerTitle) {
-        return 40;
-    } else {
-        return 0;
-    };
+    return self.tableData.sectionDatas[(NSUInteger) section].footerHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

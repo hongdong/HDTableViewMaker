@@ -11,7 +11,7 @@
 @interface UITableView (HDTableViewDataSource)
 @property(nonatomic, strong) HDBaseTableViewDataSource * hdTableViewDataSource;
 
-- (void)hd_makeDataSource:(void (^)(HDTableViewDataSourceMaker * make))maker;
+- (UITableView *)hd_makeDataSource:(void (^)(HDTableViewDataSourceMaker * make))maker;
 
 
 @end

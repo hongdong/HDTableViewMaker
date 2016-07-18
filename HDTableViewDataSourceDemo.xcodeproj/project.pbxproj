@@ -13,18 +13,19 @@
 		07EC03621D39E0C90088E5BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07EC03601D39E0C90088E5BE /* Main.storyboard */; };
 		07EC03641D39E0C90088E5BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07EC03631D39E0C90088E5BE /* Assets.xcassets */; };
 		07EC03671D39E0C90088E5BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07EC03651D39E0C90088E5BE /* LaunchScreen.storyboard */; };
-		07EC03821D39E0FA0088E5BE /* HDTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03701D39E0FA0088E5BE /* HDTableData.m */; };
-		07EC03831D39E0FA0088E5BE /* HDSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03721D39E0FA0088E5BE /* HDSectionData.m */; };
-		07EC03841D39E0FA0088E5BE /* HDCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03741D39E0FA0088E5BE /* HDCellData.m */; };
-		07EC03851D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03761D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.m */; };
-		07EC03861D39E0FA0088E5BE /* HDBaseTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03781D39E0FA0088E5BE /* HDBaseTableViewDataSource.m */; };
-		07EC03871D39E0FA0088E5BE /* HDTableViewDataSourceMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC037A1D39E0FA0088E5BE /* HDTableViewDataSourceMaker.m */; };
-		07EC03881D39E0FA0088E5BE /* HDTableSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC037C1D39E0FA0088E5BE /* HDTableSectionMaker.m */; };
-		07EC03891D39E0FA0088E5BE /* HDTableCellMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC037E1D39E0FA0088E5BE /* HDTableCellMaker.m */; };
-		07EC038A1D39E0FA0088E5BE /* UITableView+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03811D39E0FA0088E5BE /* UITableView+HD.m */; };
 		07EC038F1D39E2950088E5BE /* HDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC038D1D39E2950088E5BE /* HDTableViewCell.m */; };
 		07EC03901D39E2950088E5BE /* HDTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07EC038E1D39E2950088E5BE /* HDTableViewCell.xib */; };
 		4ABCA5CB1F5134753126CA11 /* libPods-HDTableViewDataSourceDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A140E11AC2BDB60D9B760E7 /* libPods-HDTableViewDataSourceDemo.a */; };
+		AE4973DA1D3CC35500FBE39E /* UITableView+HDFreshUI.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973C61D3CC35500FBE39E /* UITableView+HDFreshUI.m */; };
+		AE4973DB1D3CC35500FBE39E /* HDBaseTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973C81D3CC35500FBE39E /* HDBaseTableViewDataSource.m */; };
+		AE4973DC1D3CC35500FBE39E /* HDCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973CA1D3CC35500FBE39E /* HDCellData.m */; };
+		AE4973DD1D3CC35500FBE39E /* HDSectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973CC1D3CC35500FBE39E /* HDSectionData.m */; };
+		AE4973DE1D3CC35500FBE39E /* HDTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973CE1D3CC35500FBE39E /* HDTableData.m */; };
+		AE4973DF1D3CC35500FBE39E /* HDTableCellMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973D01D3CC35500FBE39E /* HDTableCellMaker.m */; };
+		AE4973E01D3CC35500FBE39E /* HDTableSectionMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973D21D3CC35500FBE39E /* HDTableSectionMaker.m */; };
+		AE4973E11D3CC35500FBE39E /* HDTableViewDataSourceMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973D51D3CC35500FBE39E /* HDTableViewDataSourceMaker.m */; };
+		AE4973E21D3CC35500FBE39E /* UITableView+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973D71D3CC35500FBE39E /* UITableView+HD.m */; };
+		AE4973E31D3CC35500FBE39E /* UITableView+HDTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4973D91D3CC35500FBE39E /* UITableView+HDTableViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,31 +39,34 @@
 		07EC03631D39E0C90088E5BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07EC03661D39E0C90088E5BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07EC03681D39E0C90088E5BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07EC036F1D39E0FA0088E5BE /* HDTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableData.h; sourceTree = "<group>"; };
-		07EC03701D39E0FA0088E5BE /* HDTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableData.m; sourceTree = "<group>"; };
-		07EC03711D39E0FA0088E5BE /* HDSectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSectionData.h; sourceTree = "<group>"; };
-		07EC03721D39E0FA0088E5BE /* HDSectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSectionData.m; sourceTree = "<group>"; };
-		07EC03731D39E0FA0088E5BE /* HDCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCellData.h; sourceTree = "<group>"; };
-		07EC03741D39E0FA0088E5BE /* HDCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCellData.m; sourceTree = "<group>"; };
-		07EC03751D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HDTableViewDataSource.h"; sourceTree = "<group>"; };
-		07EC03761D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDTableViewDataSource.m"; sourceTree = "<group>"; };
-		07EC03771D39E0FA0088E5BE /* HDBaseTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBaseTableViewDataSource.h; sourceTree = "<group>"; };
-		07EC03781D39E0FA0088E5BE /* HDBaseTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBaseTableViewDataSource.m; sourceTree = "<group>"; };
-		07EC03791D39E0FA0088E5BE /* HDTableViewDataSourceMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewDataSourceMaker.h; sourceTree = "<group>"; };
-		07EC037A1D39E0FA0088E5BE /* HDTableViewDataSourceMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableViewDataSourceMaker.m; sourceTree = "<group>"; };
-		07EC037B1D39E0FA0088E5BE /* HDTableSectionMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableSectionMaker.h; sourceTree = "<group>"; };
-		07EC037C1D39E0FA0088E5BE /* HDTableSectionMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableSectionMaker.m; sourceTree = "<group>"; };
-		07EC037D1D39E0FA0088E5BE /* HDTableCellMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableCellMaker.h; sourceTree = "<group>"; };
-		07EC037E1D39E0FA0088E5BE /* HDTableCellMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableCellMaker.m; sourceTree = "<group>"; };
-		07EC037F1D39E0FA0088E5BE /* HDTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewDataSource.h; sourceTree = "<group>"; };
-		07EC03801D39E0FA0088E5BE /* UITableView+HD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HD.h"; sourceTree = "<group>"; };
-		07EC03811D39E0FA0088E5BE /* UITableView+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HD.m"; sourceTree = "<group>"; };
 		07EC038C1D39E2950088E5BE /* HDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewCell.h; sourceTree = "<group>"; };
 		07EC038D1D39E2950088E5BE /* HDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableViewCell.m; sourceTree = "<group>"; };
 		07EC038E1D39E2950088E5BE /* HDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDTableViewCell.xib; sourceTree = "<group>"; };
 		2A140E11AC2BDB60D9B760E7 /* libPods-HDTableViewDataSourceDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HDTableViewDataSourceDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE66D127FA52E6F3FE0137C /* Pods-HDTableViewDataSourceDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewDataSourceDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo.release.xcconfig"; sourceTree = "<group>"; };
 		831AEDE233C4EC2AEBE21594 /* Pods-HDTableViewDataSourceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewDataSourceDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AE4973C51D3CC35500FBE39E /* UITableView+HDFreshUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HDFreshUI.h"; sourceTree = "<group>"; };
+		AE4973C61D3CC35500FBE39E /* UITableView+HDFreshUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDFreshUI.m"; sourceTree = "<group>"; };
+		AE4973C71D3CC35500FBE39E /* HDBaseTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBaseTableViewDataSource.h; sourceTree = "<group>"; };
+		AE4973C81D3CC35500FBE39E /* HDBaseTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDBaseTableViewDataSource.m; sourceTree = "<group>"; };
+		AE4973C91D3CC35500FBE39E /* HDCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCellData.h; sourceTree = "<group>"; };
+		AE4973CA1D3CC35500FBE39E /* HDCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCellData.m; sourceTree = "<group>"; };
+		AE4973CB1D3CC35500FBE39E /* HDSectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDSectionData.h; sourceTree = "<group>"; };
+		AE4973CC1D3CC35500FBE39E /* HDSectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDSectionData.m; sourceTree = "<group>"; };
+		AE4973CD1D3CC35500FBE39E /* HDTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableData.h; sourceTree = "<group>"; };
+		AE4973CE1D3CC35500FBE39E /* HDTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableData.m; sourceTree = "<group>"; };
+		AE4973CF1D3CC35500FBE39E /* HDTableCellMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableCellMaker.h; sourceTree = "<group>"; };
+		AE4973D01D3CC35500FBE39E /* HDTableCellMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableCellMaker.m; sourceTree = "<group>"; };
+		AE4973D11D3CC35500FBE39E /* HDTableSectionMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableSectionMaker.h; sourceTree = "<group>"; };
+		AE4973D21D3CC35500FBE39E /* HDTableSectionMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableSectionMaker.m; sourceTree = "<group>"; };
+		AE4973D31D3CC35500FBE39E /* HDTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewDataSource.h; sourceTree = "<group>"; };
+		AE4973D41D3CC35500FBE39E /* HDTableViewDataSourceMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewDataSourceMaker.h; sourceTree = "<group>"; };
+		AE4973D51D3CC35500FBE39E /* HDTableViewDataSourceMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableViewDataSourceMaker.m; sourceTree = "<group>"; };
+		AE4973D61D3CC35500FBE39E /* UITableView+HD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HD.h"; sourceTree = "<group>"; };
+		AE4973D71D3CC35500FBE39E /* UITableView+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HD.m"; sourceTree = "<group>"; };
+		AE4973D81D3CC35500FBE39E /* UITableView+HDTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HDTableViewDataSource.h"; sourceTree = "<group>"; };
+		AE4973D91D3CC35500FBE39E /* UITableView+HDTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDTableViewDataSource.m"; sourceTree = "<group>"; };
+		AE4973E41D3CC38E00FBE39E /* HDCommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDCommonHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,25 +136,28 @@
 		07EC036E1D39E0EE0088E5BE /* HDTableViewDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				07EC036F1D39E0FA0088E5BE /* HDTableData.h */,
-				07EC03701D39E0FA0088E5BE /* HDTableData.m */,
-				07EC03711D39E0FA0088E5BE /* HDSectionData.h */,
-				07EC03721D39E0FA0088E5BE /* HDSectionData.m */,
-				07EC03731D39E0FA0088E5BE /* HDCellData.h */,
-				07EC03741D39E0FA0088E5BE /* HDCellData.m */,
-				07EC03751D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.h */,
-				07EC03761D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.m */,
-				07EC03771D39E0FA0088E5BE /* HDBaseTableViewDataSource.h */,
-				07EC03781D39E0FA0088E5BE /* HDBaseTableViewDataSource.m */,
-				07EC03791D39E0FA0088E5BE /* HDTableViewDataSourceMaker.h */,
-				07EC037A1D39E0FA0088E5BE /* HDTableViewDataSourceMaker.m */,
-				07EC037B1D39E0FA0088E5BE /* HDTableSectionMaker.h */,
-				07EC037C1D39E0FA0088E5BE /* HDTableSectionMaker.m */,
-				07EC037D1D39E0FA0088E5BE /* HDTableCellMaker.h */,
-				07EC037E1D39E0FA0088E5BE /* HDTableCellMaker.m */,
-				07EC037F1D39E0FA0088E5BE /* HDTableViewDataSource.h */,
-				07EC03801D39E0FA0088E5BE /* UITableView+HD.h */,
-				07EC03811D39E0FA0088E5BE /* UITableView+HD.m */,
+				AE4973C51D3CC35500FBE39E /* UITableView+HDFreshUI.h */,
+				AE4973C61D3CC35500FBE39E /* UITableView+HDFreshUI.m */,
+				AE4973C71D3CC35500FBE39E /* HDBaseTableViewDataSource.h */,
+				AE4973C81D3CC35500FBE39E /* HDBaseTableViewDataSource.m */,
+				AE4973C91D3CC35500FBE39E /* HDCellData.h */,
+				AE4973CA1D3CC35500FBE39E /* HDCellData.m */,
+				AE4973CB1D3CC35500FBE39E /* HDSectionData.h */,
+				AE4973CC1D3CC35500FBE39E /* HDSectionData.m */,
+				AE4973CD1D3CC35500FBE39E /* HDTableData.h */,
+				AE4973CE1D3CC35500FBE39E /* HDTableData.m */,
+				AE4973CF1D3CC35500FBE39E /* HDTableCellMaker.h */,
+				AE4973D01D3CC35500FBE39E /* HDTableCellMaker.m */,
+				AE4973D11D3CC35500FBE39E /* HDTableSectionMaker.h */,
+				AE4973D21D3CC35500FBE39E /* HDTableSectionMaker.m */,
+				AE4973D31D3CC35500FBE39E /* HDTableViewDataSource.h */,
+				AE4973D41D3CC35500FBE39E /* HDTableViewDataSourceMaker.h */,
+				AE4973D51D3CC35500FBE39E /* HDTableViewDataSourceMaker.m */,
+				AE4973D61D3CC35500FBE39E /* UITableView+HD.h */,
+				AE4973D71D3CC35500FBE39E /* UITableView+HD.m */,
+				AE4973D81D3CC35500FBE39E /* UITableView+HDTableViewDataSource.h */,
+				AE4973D91D3CC35500FBE39E /* UITableView+HDTableViewDataSource.m */,
+				AE4973E41D3CC38E00FBE39E /* HDCommonHeader.h */,
 			);
 			path = HDTableViewDataSource;
 			sourceTree = "<group>";
@@ -181,12 +188,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07EC036B1D39E0C90088E5BE /* Build configuration list for PBXNativeTarget "HDTableViewDataSourceDemo" */;
 			buildPhases = (
+				D843BC3F5EA3EA0D25A5D285 /* 📦 Check Pods Manifest.lock */,
 				039D8178A374F3FC2AC4E7FE /* [CP] Check Pods Manifest.lock */,
 				07EC03501D39E0C80088E5BE /* Sources */,
 				07EC03511D39E0C80088E5BE /* Frameworks */,
 				07EC03521D39E0C80088E5BE /* Resources */,
 				607C984ED2A231CA5CD4CB8A /* [CP] Embed Pods Frameworks */,
 				CB74AE43B3422983DF3A2633 /* [CP] Copy Pods Resources */,
+				A91CA0EF26FD38922A3B17D5 /* 📦 Embed Pods Frameworks */,
+				89EEB42A5E163D95BE02ED04 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +284,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		89EEB42A5E163D95BE02ED04 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A91CA0EF26FD38922A3B17D5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CB74AE43B3422983DF3A2633 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +329,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D843BC3F5EA3EA0D25A5D285 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -297,18 +352,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EC038F1D39E2950088E5BE /* HDTableViewCell.m in Sources */,
-				07EC03831D39E0FA0088E5BE /* HDSectionData.m in Sources */,
-				07EC03891D39E0FA0088E5BE /* HDTableCellMaker.m in Sources */,
+				AE4973DB1D3CC35500FBE39E /* HDBaseTableViewDataSource.m in Sources */,
+				AE4973DA1D3CC35500FBE39E /* UITableView+HDFreshUI.m in Sources */,
+				AE4973E01D3CC35500FBE39E /* HDTableSectionMaker.m in Sources */,
+				AE4973DF1D3CC35500FBE39E /* HDTableCellMaker.m in Sources */,
+				AE4973E11D3CC35500FBE39E /* HDTableViewDataSourceMaker.m in Sources */,
 				07EC035F1D39E0C90088E5BE /* ViewController.m in Sources */,
+				AE4973DE1D3CC35500FBE39E /* HDTableData.m in Sources */,
 				07EC035C1D39E0C90088E5BE /* AppDelegate.m in Sources */,
-				07EC03861D39E0FA0088E5BE /* HDBaseTableViewDataSource.m in Sources */,
-				07EC03821D39E0FA0088E5BE /* HDTableData.m in Sources */,
-				07EC03881D39E0FA0088E5BE /* HDTableSectionMaker.m in Sources */,
-				07EC03871D39E0FA0088E5BE /* HDTableViewDataSourceMaker.m in Sources */,
+				AE4973DD1D3CC35500FBE39E /* HDSectionData.m in Sources */,
+				AE4973DC1D3CC35500FBE39E /* HDCellData.m in Sources */,
 				07EC03591D39E0C90088E5BE /* main.m in Sources */,
-				07EC03851D39E0FA0088E5BE /* UITableView+HDTableViewDataSource.m in Sources */,
-				07EC03841D39E0FA0088E5BE /* HDCellData.m in Sources */,
-				07EC038A1D39E0FA0088E5BE /* UITableView+HD.m in Sources */,
+				AE4973E31D3CC35500FBE39E /* UITableView+HDTableViewDataSource.m in Sources */,
+				AE4973E21D3CC35500FBE39E /* UITableView+HD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

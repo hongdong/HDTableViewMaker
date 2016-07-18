@@ -1,12 +1,15 @@
 PODS:
+  - MJRefresh (3.1.10)
   - UITableView+FDTemplateLayoutCell (1.4)
 
 DEPENDENCIES:
+  - MJRefresh
   - UITableView+FDTemplateLayoutCell
 
 SPEC CHECKSUMS:
+  MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: ce2ba42766ab3b34aa7da39bdb47ae637cc27913
+PODFILE CHECKSUM: fbefddb14954ab60b63160d3bf2d1ec7d06bc3ec
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0

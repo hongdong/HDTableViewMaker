@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class HDSectionData;
+@class HDSectionData,HDTableSectionMaker;
+
+typedef void (^SectionMakeBlock)(HDTableSectionMaker * sectionMaker);
 
 @interface HDTableData : NSObject
 
@@ -21,5 +23,7 @@
 @property (nonatomic, strong) NSArray *dataArr;
 
 @property (nonatomic, assign) CGFloat rowHeight;
+
+@property (nonatomic, copy)  SectionMakeBlock sectionMakeBlock;
 
 @end
