@@ -51,23 +51,45 @@
 - (HDTableViewDataSourceMaker * (^)(NSInteger))hd_sectionCount {
     return ^HDTableViewDataSourceMaker *(NSInteger sectionCount) {
         self.tableData.sectionCount = sectionCount;
+        [self doSectionMakeBlock];
         return self;
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(void (^)(HDTableSectionMaker * section)))hd_section{
-    return ^HDTableViewDataSourceMaker *(void (^sectionMakeBlock)(HDTableSectionMaker * sectionMaker)){
+- (HDTableViewDataSourceMaker * (^)(SectionMakeBlock))hd_section{
+    return ^HDTableViewDataSourceMaker *(SectionMakeBlock sectionMakeBlock){
+        self.tableData.sectionMakeBlock = sectionMakeBlock;
+        [self doSectionMakeBlock];
+        return self;
+    };
+}
+
+-(void)doSectionMakeBlock{
+    if (self.tableData.sectionCount>0&&self.tableData.sectionMakeBlock) {
+
         for (int i = 0; i<self.tableData.sectionCount; i++) {
             HDTableSectionMaker * sectionMaker = [[HDTableSectionMaker alloc] initWithTableView:self.tableData.tableView];
             if (self.tableData.rowHeight!=0) {
                 sectionMaker.sectionData.rowHeight = self.tableData.rowHeight;
             }
             sectionMaker.sectionData.section = i;
-            sectionMakeBlock(sectionMaker);
+            self.tableData.sectionMakeBlock(sectionMaker);
             [self.tableData.sectionDatas addObject:sectionMaker.sectionData];
         }
-        return self;
-    };
+    }
+}
+
+- (HDTableViewDataSourceMaker *)hd_sections:(void (^)(HDTableSectionMaker * sectionMaker))sectionMakeBlock{
+    for (int i = 0; i<self.tableData.sectionCount; i++) {
+        HDTableSectionMaker * sectionMaker = [[HDTableSectionMaker alloc] initWithTableView:self.tableData.tableView];
+        if (self.tableData.rowHeight!=0) {
+            sectionMaker.sectionData.rowHeight = self.tableData.rowHeight;
+        }
+        sectionMaker.sectionData.section = i;
+        sectionMakeBlock(sectionMaker);
+        [self.tableData.sectionDatas addObject:sectionMaker.sectionData];
+    }
+    return self;
 }
 
 

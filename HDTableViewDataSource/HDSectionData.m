@@ -12,6 +12,32 @@
 /**
  *  GET
  */
+
+-(CGFloat)headerHeight{
+    if (_headerHeight==0) {
+        if (self.headerView) {
+            _headerHeight = _headerView.frame.size.height;
+        }
+        if (self.headerTitle) {
+            _headerHeight = 40;
+        }
+    }
+    return _headerHeight;
+}
+
+-(CGFloat)footerHeight{
+    if (_footerHeight==0) {
+        if (self.footerView) {
+            _headerHeight = _footerView.frame.size.height;
+        }
+        if (self.footerTitle) {
+            _headerHeight = 40;
+        }
+    }
+
+    return _footerHeight;
+}
+
 -(NSInteger)rowCount{
     if (_rowCount==0) {
         _rowCount = _modelDatas.count;

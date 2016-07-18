@@ -21,7 +21,7 @@
     objc_setAssociatedObject(self,@selector(hdTableViewDataSource),hdTableViewDataSource,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)hd_makeDataSource:(void (^)(HDTableViewDataSourceMaker *))maker{
+- (UITableView *)hd_makeDataSource:(void (^)(HDTableViewDataSourceMaker *))maker{
     HDTableViewDataSourceMaker * make = [[HDTableViewDataSourceMaker alloc] initWithTableView:self];
     maker(make);
     Class DataSourceClass = [HDBaseTableViewDataSource class];
@@ -30,6 +30,7 @@
     self.hdTableViewDataSource = ds;
     self.dataSource = ds;
     self.delegate = ds;
+    return self;
 }
 
 @end

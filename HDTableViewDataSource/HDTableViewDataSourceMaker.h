@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "HDTableData.h"
 #pragma mark -- Class HDTableViewDataSourceMaker
-@class HDTableSectionMaker,HDTableData;;
+@class HDTableSectionMaker;;
 @interface HDTableViewDataSourceMaker : NSObject
 
 @property (nonatomic, strong) HDTableData *tableData;
@@ -24,6 +25,8 @@
 
 - (HDTableViewDataSourceMaker * (^)(NSInteger))hd_sectionCount;
 
-- (HDTableViewDataSourceMaker * (^)(void (^)(HDTableSectionMaker * sectionMaker)))hd_section;
+- (HDTableViewDataSourceMaker * (^)(SectionMakeBlock))hd_section;
+
+- (HDTableViewDataSourceMaker *)hd_sections:(void (^)(HDTableSectionMaker * sectionMaker))sectionMakeBlock;
 
 @end

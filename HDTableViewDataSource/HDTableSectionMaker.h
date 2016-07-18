@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "HDSectionData.h"
 #pragma mark -- Class HDTableSectionMaker
-@class HDSectionData,HDTableCellMaker;
+@class HDTableCellMaker;
 @interface HDTableSectionMaker : NSObject
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
@@ -24,10 +25,15 @@
 
 - (HDTableSectionMaker * (^)(CGFloat)) rowHeight;
 
+- (HDTableSectionMaker * (^)(CGFloat)) headerHeight;
+- (HDTableSectionMaker * (^)(CGFloat)) footerHeight;
+
+
+
 - (HDTableSectionMaker * (^)(NSInteger))hd_rowCount;
 
 
-- (HDTableSectionMaker * (^)(void (^)(HDTableCellMaker * cellMaker)))hd_cell;
+- (HDTableSectionMaker * (^)(CellMakeBlock))hd_cell;
 
 
 

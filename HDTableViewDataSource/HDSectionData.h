@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "HDTableCellMaker.h"
 
 typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
-@class HDCellData;
+typedef void (^CellMakeBlock)(HDTableCellMaker * sectionMaker);
+
 @interface HDSectionData : NSObject
 
 @property(nonatomic, strong) NSMutableArray<HDCellData *> * cellDatas;
@@ -29,6 +31,7 @@ typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
 
 @property(nonatomic, assign) CGFloat rowHeight;
 
+
 @property (nonatomic, assign) NSInteger section;
 
 @property (nonatomic, assign) NSInteger rowCount;
@@ -36,6 +39,9 @@ typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
 
 
 @property(nonatomic, copy) NumberOfRowsBlock numberOfRowsBlock;
+
+@property(nonatomic, copy) CellMakeBlock cellMakeBlock;
+
 
 
 @end

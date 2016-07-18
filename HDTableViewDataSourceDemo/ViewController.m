@@ -22,9 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_mainTable hd_makeDataSource:^(HDTableViewDataSourceMaker *dataSourceMaker) {
+    [[_mainTable hd_makeDataSource:^(HDTableViewDataSourceMaker *dataSourceMaker) {
         
-        dataSourceMaker
+        dataSourceMaker.hd_sectionCount(1)
         .hd_section(^(HDTableSectionMaker * sectionMaker){
             
             sectionMaker
@@ -39,6 +39,8 @@
                 
             });
         });
+    }] hd_addAllFresh:^(HDFreshType freshType) {
+        
     }];
     
 }

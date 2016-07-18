@@ -13,5 +13,7 @@
 #import "HDTableViewDataSourceMaker.h"
 #import "HDTableSectionMaker.h"
 #import "HDTableCellMaker.h"
-
+#import "HDBaseTableViewDataSource.h"
+#import "UITableView+HDFreshUI.h"
+#import "UITableView+HD.h"
 #endif /* HDTableViewDataSource_h */
