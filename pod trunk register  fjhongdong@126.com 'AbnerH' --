@@ -1,0 +1,2 @@
+pod trunk register  fjhongdong@126.com 'AbnerH' --description='macbook pro' --verbose
+pod trunk push HDTableViewDataSource.podspec
