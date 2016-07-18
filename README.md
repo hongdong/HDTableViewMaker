@@ -149,7 +149,7 @@ pod 'HDTableViewDataSource'
 #### HDTableViewDataSourceMaker支持设置以下属性：
 **注意这些属性都是针对整个UITableView**
 
-#### hd_sectionCount
+##### hd_sectionCount
 用户配置这个tableView中存在几个的section
 ``` objective-c
   dataSourceMaker.hd_sectionCount(10)
@@ -258,7 +258,7 @@ section.headerView(^(){
 该属性与footerTitle冲突，当设置了footerView，以footerView为准。
 
 
-## HDTableSectionMaker对象支持设置以下属性：
+## HDTableCellMaker对象支持设置以下属性：
 
 **注意，这些设置都是针对单独的cell设置的**
 
