@@ -71,6 +71,13 @@
     };
 }
 
+- (HDTableSectionMaker * (^)(GetDataBlock))dataTest{
+    return ^HDTableSectionMaker *(GetDataBlock getDataBlock){
+        self.sectionData.getDataBlock = getDataBlock;
+        return self;
+    };
+}
+
 - (HDTableSectionMaker * (^)(UIView * (^)()))footerView {
     return ^HDTableSectionMaker *(UIView * (^view)()) {
         self.sectionData.footerView = view();
@@ -81,7 +88,6 @@
 - (HDTableSectionMaker * (^)(NSInteger))hd_rowCount{
     return ^HDTableSectionMaker *(NSInteger rowCount){
         self.sectionData.rowCount = rowCount;
-        [self doCellMakerBlock];
         return self;
     };
 }
@@ -89,22 +95,8 @@
 - (HDTableSectionMaker * (^)(CellMakeBlock))hd_cell{
     return ^HDTableSectionMaker *(CellMakeBlock cellMakerBlock){
         self.sectionData.cellMakeBlock = cellMakerBlock;
-        [self doCellMakerBlock];
         return self;
     };
-}
-
--(void)doCellMakerBlock{
-    if (self.sectionData.rowCount>0&&self.sectionData.cellMakeBlock) {
-        for (int i = 0; i<self.sectionData.rowCount; i++) {
-            HDTableCellMaker * cellMaker = [[HDTableCellMaker alloc] initWithTableView:self.sectionData.tableView];
-            cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.sectionData.section];
-            cellMaker.cellData.data = self.sectionData.modelDatas[i];
-            self.sectionData.cellMakeBlock(cellMaker);
-            [self.sectionData.cellDatas addObject:cellMaker.cellData];
-        }
-    }
- 
 }
 
 

@@ -27,6 +27,6 @@
 
 - (HDTableViewDataSourceMaker * (^)(SectionMakeBlock))hd_section;
 
-- (HDTableViewDataSourceMaker *)hd_sections:(void (^)(HDTableSectionMaker * sectionMaker))sectionMakeBlock;
+- (HDTableViewDataSourceMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay;
 
 @end

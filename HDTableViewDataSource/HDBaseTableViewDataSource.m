@@ -52,7 +52,9 @@
     NSUInteger section = (NSUInteger) indexPath.section;
     NSUInteger index = (NSUInteger) indexPath.row;
     
-    HDCellData *cellData = self.tableData.sectionDatas[section].cellDatas[index];
+    HDSectionData *sectionData = self.tableData.sectionDatas[section];
+        
+    HDCellData *cellData = sectionData.cellDatas[index];
 
     return cellData.rowHeight;
 
@@ -78,6 +80,12 @@
         cellData.event(indexPath,cellData.data);
     }
     
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.tableData.cellWillDisplayBlock) {
+        self.tableData.cellWillDisplayBlock(tableView,cell,indexPath);
+    }
 }
 
 

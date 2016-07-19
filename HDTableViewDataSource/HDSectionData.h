@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "HDTableCellMaker.h"
 
+typedef  NSArray * (^GetDataBlock)();
+
 typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
 typedef void (^CellMakeBlock)(HDTableCellMaker * sectionMaker);
 
@@ -42,6 +44,9 @@ typedef void (^CellMakeBlock)(HDTableCellMaker * sectionMaker);
 
 @property(nonatomic, copy) CellMakeBlock cellMakeBlock;
 
+@property(nonatomic, copy) GetDataBlock getDataBlock;
+
+-(void)doCellMakerBlock;
 
 
 @end

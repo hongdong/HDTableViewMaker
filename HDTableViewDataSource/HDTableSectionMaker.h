@@ -16,6 +16,8 @@
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
 - (HDTableSectionMaker * (^)(NSArray *))data;
+- (HDTableSectionMaker * (^)(GetDataBlock))dataTest;
+
 
 - (HDTableSectionMaker * (^)(NSString *))headerTitle;
 - (HDTableSectionMaker * (^)(NSString *))footerTitle;

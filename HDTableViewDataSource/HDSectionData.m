@@ -9,6 +9,9 @@
 #import "HDSectionData.h"
 
 @implementation HDSectionData
+
+@synthesize rowCount = _rowCount;
+
 /**
  *  GET
  */
@@ -40,15 +43,48 @@
 
 -(NSInteger)rowCount{
     if (_rowCount==0) {
-        _rowCount = _modelDatas.count;
+        _rowCount = self.modelDatas.count;
     }
     return _rowCount;
+}
+
+-(void)setRowCount:(NSInteger)rowCount{
+    _rowCount = rowCount;
+    [self doCellMakerBlock];
+}
+
+-(void)setCellMakeBlock:(CellMakeBlock)cellMakeBlock{
+    _cellMakeBlock = cellMakeBlock;
+    [self doCellMakerBlock];
+}
+
+-(void)doCellMakerBlock{
+    if (self.rowCount>0&&self.cellMakeBlock) {
+        [_cellDatas removeAllObjects];
+        for (int i = 0; i<self.rowCount; i++) {
+            HDTableCellMaker * cellMaker = [[HDTableCellMaker alloc] initWithTableView:self.tableView];
+            cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.section];
+            cellMaker.cellData.data = self.modelDatas[i];
+            cellMaker.cellData.rowHeight = self.rowHeight;
+            self.cellMakeBlock(cellMaker);
+            [_cellDatas addObject:cellMaker.cellData];
+        }
+    }
+    
+}
+
+-(NSArray *)modelDatas{
+    if (self.getDataBlock) {
+        _modelDatas = self.getDataBlock();
+    }
+    return _modelDatas;
 }
 
 -(NSMutableArray<HDCellData *> *)cellDatas{
     if (!_cellDatas) {
         _cellDatas = [NSMutableArray array];
     }
+    [self doCellMakerBlock];
     return _cellDatas;
 }
 @end
