@@ -82,11 +82,5 @@
     
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.tableData.cellWillDisplayBlock) {
-        self.tableData.cellWillDisplayBlock(tableView,cell,indexPath);
-    }
-}
-
 
 @end

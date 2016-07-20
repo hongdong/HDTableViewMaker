@@ -18,11 +18,12 @@
 
 -(CGFloat)headerHeight{
     if (_headerHeight==0) {
+        _headerHeight = 0.0001;
         if (self.headerView) {
             _headerHeight = _headerView.frame.size.height;
         }
         if (self.headerTitle) {
-            _headerHeight = 40;
+            _headerHeight = 30;
         }
     }
     return _headerHeight;
@@ -30,11 +31,12 @@
 
 -(CGFloat)footerHeight{
     if (_footerHeight==0) {
+        _footerHeight = 0.0001;
         if (self.footerView) {
             _headerHeight = _footerView.frame.size.height;
         }
         if (self.footerTitle) {
-            _headerHeight = 40;
+            _headerHeight = 30;
         }
     }
 

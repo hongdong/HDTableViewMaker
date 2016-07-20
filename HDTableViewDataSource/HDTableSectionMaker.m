@@ -21,12 +21,12 @@
     
 }
 
-- (HDTableSectionMaker * (^)(NSArray *))data {
-    return ^HDTableSectionMaker *(NSArray * datas) {
-        self.sectionData.modelDatas = datas;
-        return self;
-    };
-}
+//- (HDTableSectionMaker * (^)(NSArray *))data {
+//    return ^HDTableSectionMaker *(NSArray * datas) {
+//        self.sectionData.modelDatas = datas;
+//        return self;
+//    };
+//}
 
 - (HDTableSectionMaker * (^)(NSString *))headerTitle {
     return ^HDTableSectionMaker *(NSString * title) {
@@ -71,7 +71,7 @@
     };
 }
 
-- (HDTableSectionMaker * (^)(GetDataBlock))dataTest{
+- (HDTableSectionMaker * (^)(GetDataBlock))dataArr{
     return ^HDTableSectionMaker *(GetDataBlock getDataBlock){
         self.sectionData.getDataBlock = getDataBlock;
         return self;

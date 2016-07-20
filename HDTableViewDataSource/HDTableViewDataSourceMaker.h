@@ -29,4 +29,9 @@
 
 - (HDTableViewDataSourceMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay;
 
+- (HDTableViewDataSourceMaker * (^)(CommitEditingBlock))hd_commitEditing;
+
+- (HDTableViewDataSourceMaker * (^)(ScrollViewDidScrollBlock))hd_scrollViewDidScroll;
+
+
 @end

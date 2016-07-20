@@ -47,4 +47,11 @@
     }
 }
 
+-(NSMutableDictionary *)otherDelegateBlocksDic{
+    if (!_otherDelegateBlocksDic) {
+        _otherDelegateBlocksDic = [NSMutableDictionary dictionary];
+    }
+    return _otherDelegateBlocksDic;
+}
+
 @end

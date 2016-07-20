@@ -28,7 +28,9 @@
         .hd_section(^(HDTableSectionMaker * sectionMaker){
             
             sectionMaker
-            .data(self.dataArr)
+            .dataArr(^(){
+                return self.dataArr;
+            })
             .hd_cell(^(HDTableCellMaker *cellMaker){
                 
                 cellMaker

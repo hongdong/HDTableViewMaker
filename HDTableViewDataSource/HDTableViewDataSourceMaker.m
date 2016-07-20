@@ -11,6 +11,13 @@
 #import "HDTableSectionMaker.h"
 #import "HDSectionData.h"
 
+#define HDStringSelector(_SEL_) NSStringFromSelector(@selector(_SEL_))
+
+
+@interface HDTableViewDataSourceMaker ()<UITableViewDataSource,UITabBarDelegate>
+
+@end
+
 @implementation HDTableViewDataSourceMaker
 
 - (instancetype)initWithTableView:(UITableView *)tableView{
@@ -65,10 +72,26 @@
 
 - (HDTableViewDataSourceMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay{
     return ^HDTableViewDataSourceMaker *(CellWillDisplayBlock cellWillDisplayBlock){
-        self.tableData.cellWillDisplayBlock = cellWillDisplayBlock;
+//        self.tableData.cellWillDisplayBlock = cellWillDisplayBlock;
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:willDisplayCell:forRowAtIndexPath:)] = cellWillDisplayBlock;
         return self;
     };
 }
+
+- (HDTableViewDataSourceMaker * (^)(CommitEditingBlock))hd_commitEditing{
+    return ^HDTableViewDataSourceMaker *(CommitEditingBlock commitEditingBlock){
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:commitEditingStyle:forRowAtIndexPath:)] = commitEditingBlock;
+        return self;
+    };
+}
+
+- (HDTableViewDataSourceMaker * (^)(ScrollViewDidScrollBlock))hd_scrollViewDidScroll{
+    return ^HDTableViewDataSourceMaker *(ScrollViewDidScrollBlock scrollViewDidScrollBlock){
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(scrollViewDidScroll:)] = scrollViewDidScrollBlock;
+        return self;
+    };
+}
+
 
 
 /**

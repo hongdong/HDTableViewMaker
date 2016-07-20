@@ -26,4 +26,6 @@ typedef void (^FreshBlock)(HDFreshType freshType);
 -(UITableView *)hd_addFreshFooter:(VoidBlock)footerBlock;
 -(UITableView *)hd_addAllFresh:(FreshBlock)freshBlock;
 
+-(void)hd_endFreshing:(BOOL)existMoreData;
+
 @end
