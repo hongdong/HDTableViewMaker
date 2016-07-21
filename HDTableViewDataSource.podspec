@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HDTableViewDataSource"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary  = '只需一行代码，通过链式语法快速为UITableView创建Delegate和DataSource，满足你对UITableView的所有幻想'
   s.homepage     = "https://github.com/hongdong/HDTableViewDataSource"
   s.license      = 'MIT'
