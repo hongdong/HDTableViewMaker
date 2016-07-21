@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 typedef CGFloat (^RowHeightBlock)(NSIndexPath *indexPath);
-typedef void (^CellAdapterBlock)(id cell,id data,NSIndexPath *indexPath);
+typedef void (^CellAdapterBlock)(__kindof UITableViewCell *cell,id data,NSIndexPath *indexPath);
 typedef void (^CellEventBlock)(NSIndexPath *indexPath,id data);
 
 @interface HDCellData : NSObject

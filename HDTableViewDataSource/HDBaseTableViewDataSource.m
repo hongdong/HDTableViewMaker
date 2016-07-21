@@ -52,7 +52,9 @@
     NSUInteger section = (NSUInteger) indexPath.section;
     NSUInteger index = (NSUInteger) indexPath.row;
     
-    HDCellData *cellData = self.tableData.sectionDatas[section].cellDatas[index];
+    HDSectionData *sectionData = self.tableData.sectionDatas[section];
+        
+    HDCellData *cellData = sectionData.cellDatas[index];
 
     return cellData.rowHeight;
 

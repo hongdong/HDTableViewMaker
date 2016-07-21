@@ -38,4 +38,26 @@
     }];
     return self;
 }
+
+-(void)hd_endFreshing:(BOOL)existMoreData{
+    
+    if (self.mj_header.isRefreshing) {
+        [self.mj_header endRefreshing];
+    }
+    
+//    if (self.mj_footer.isRefreshing) {
+//        if (existMoreData) {
+//            [self.mj_footer endRefreshing];
+//        }else{
+//            [self.mj_footer endRefreshingWithNoMoreData];
+//        }
+//    }
+    
+    if (existMoreData) {
+        [self.mj_footer resetNoMoreData];
+    }else{
+        [self.mj_footer endRefreshingWithNoMoreData];
+    }
+    
+}
 @end

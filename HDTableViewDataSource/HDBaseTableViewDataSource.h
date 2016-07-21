@@ -22,8 +22,3 @@
 
 
 @end
-
-
-@interface HDSampleTableViewDataSource: HDBaseTableViewDataSource
-
-@end

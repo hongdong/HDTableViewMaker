@@ -11,6 +11,13 @@
 #import "HDTableSectionMaker.h"
 #import "HDSectionData.h"
 
+#define HDStringSelector(_SEL_) NSStringFromSelector(@selector(_SEL_))
+
+
+@interface HDTableViewDataSourceMaker ()<UITableViewDataSource,UITabBarDelegate>
+
+@end
+
 @implementation HDTableViewDataSourceMaker
 
 - (instancetype)initWithTableView:(UITableView *)tableView{
@@ -51,7 +58,6 @@
 - (HDTableViewDataSourceMaker * (^)(NSInteger))hd_sectionCount {
     return ^HDTableViewDataSourceMaker *(NSInteger sectionCount) {
         self.tableData.sectionCount = sectionCount;
-        [self doSectionMakeBlock];
         return self;
     };
 }
@@ -59,38 +65,33 @@
 - (HDTableViewDataSourceMaker * (^)(SectionMakeBlock))hd_section{
     return ^HDTableViewDataSourceMaker *(SectionMakeBlock sectionMakeBlock){
         self.tableData.sectionMakeBlock = sectionMakeBlock;
-        [self doSectionMakeBlock];
         return self;
     };
 }
 
--(void)doSectionMakeBlock{
-    if (self.tableData.sectionCount>0&&self.tableData.sectionMakeBlock) {
 
-        for (int i = 0; i<self.tableData.sectionCount; i++) {
-            HDTableSectionMaker * sectionMaker = [[HDTableSectionMaker alloc] initWithTableView:self.tableData.tableView];
-            if (self.tableData.rowHeight!=0) {
-                sectionMaker.sectionData.rowHeight = self.tableData.rowHeight;
-            }
-            sectionMaker.sectionData.section = i;
-            self.tableData.sectionMakeBlock(sectionMaker);
-            [self.tableData.sectionDatas addObject:sectionMaker.sectionData];
-        }
-    }
+- (HDTableViewDataSourceMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay{
+    return ^HDTableViewDataSourceMaker *(CellWillDisplayBlock cellWillDisplayBlock){
+//        self.tableData.cellWillDisplayBlock = cellWillDisplayBlock;
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:willDisplayCell:forRowAtIndexPath:)] = cellWillDisplayBlock;
+        return self;
+    };
 }
 
-- (HDTableViewDataSourceMaker *)hd_sections:(void (^)(HDTableSectionMaker * sectionMaker))sectionMakeBlock{
-    for (int i = 0; i<self.tableData.sectionCount; i++) {
-        HDTableSectionMaker * sectionMaker = [[HDTableSectionMaker alloc] initWithTableView:self.tableData.tableView];
-        if (self.tableData.rowHeight!=0) {
-            sectionMaker.sectionData.rowHeight = self.tableData.rowHeight;
-        }
-        sectionMaker.sectionData.section = i;
-        sectionMakeBlock(sectionMaker);
-        [self.tableData.sectionDatas addObject:sectionMaker.sectionData];
-    }
-    return self;
+- (HDTableViewDataSourceMaker * (^)(CommitEditingBlock))hd_commitEditing{
+    return ^HDTableViewDataSourceMaker *(CommitEditingBlock commitEditingBlock){
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:commitEditingStyle:forRowAtIndexPath:)] = commitEditingBlock;
+        return self;
+    };
 }
+
+- (HDTableViewDataSourceMaker * (^)(ScrollViewDidScrollBlock))hd_scrollViewDidScroll{
+    return ^HDTableViewDataSourceMaker *(ScrollViewDidScrollBlock scrollViewDidScrollBlock){
+        self.tableData.otherDelegateBlocksDic[HDStringSelector(scrollViewDidScroll:)] = scrollViewDidScrollBlock;
+        return self;
+    };
+}
+
 
 
 /**

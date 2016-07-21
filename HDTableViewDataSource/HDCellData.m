@@ -9,12 +9,14 @@
 #import "HDCellData.h"
 #import "UITableView+HD.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "UITableViewCell+HDTableViewDataSource.h"
 
 @implementation HDCellData
 
 -(UITableViewCell *)getReturnCell{
     UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:self.indexPath];
     //NSLog(@"adaptBlock %@", [adaptBlock isEqual:nil]);
+    cell.indexPath = self.indexPath;
     if(_adapter) {
         _adapter(cell,_data,_indexPath);
     }
