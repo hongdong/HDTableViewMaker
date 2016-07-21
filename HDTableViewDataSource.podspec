@@ -11,7 +11,8 @@ Pod::Spec.new do |s|
 #  s.resources = ""
 #  s.framework  = 'QuartzCore'
   s.requires_arc = true
-  s.dependency 'UITableView+FDTemplateLayoutCell'
   s.dependency 'MJRefresh'
+  s.dependency 'UITableView+FDTemplateLayoutCell'
+
 
 end
