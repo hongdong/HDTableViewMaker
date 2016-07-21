@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJRefresh.h"
+#import <MJRefresh.h>
 #import "HDCommonHeader.h"
-
 
 
 typedef NS_ENUM(NSInteger, HDFreshType) {
