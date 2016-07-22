@@ -1,6 +1,6 @@
 platform :ios, "7.0"
 
-target 'HDTableViewDataSourceDemo' do
+target 'HDTableViewMakerDemo' do
 
 pod 'UITableView+FDTemplateLayoutCell'
 
