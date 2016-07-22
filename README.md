@@ -1,18 +1,18 @@
-# HDTableViewDataSource 中文文档
+# HDTableViewMaker 中文文档
 
 ![demo](openSource.jpg)
 
-只需一行代码，快速为`UITableView`创建`Delegate`和`DataSource`。
+只需一行代码，快速配置`UITableView`的一切东西（最终目标），包括创建`Delegate`和`DataSource`、集成刷新等功能。
 
 ## 简介
 
-`HDTableViewDataSource`是一个轻量级的用于快速创建`UITableView`的`DataSource`和`Delegate`的框架。它提供了一些方便的API，帮助用户以一种快速和有逻辑的方式创建`DataSource`和`Delegate`。
+`HDTableViewMaker`是一个轻量级的用于快速配置`UITableView`的框架。它提供了一些方便的API，帮助用户以一种快速和逻辑集中的方式配置出你想要的UITableView。
 
 
 ## 为什么使用
 我们在开发App的时候，往往花费大量的时间在为`UITableView`写`DataSource`和`Delegate`上。而它们往往是一些重复性的并且难以维护的代码。因为它们分散在了各个代理方法中，当我们需要进行修改时，需要到各个代理方法中依次修改它们。
 
-而`HDTableViewDataSource`改变了这种书写方式，它提供一套简练的API，使得我们可以快速地书写有逻辑的，便于维护的代码。
+而`HDTableViewMaker`改变了这种书写方式，它提供一套简练的API，使得我们可以快速地书写有逻辑的，更集中的，更便于维护的代码。
 
 为了让大家看到使用该框架的优势，我们来做一个对比：
 
@@ -82,8 +82,8 @@ typedef NS_ENUM(NSInteger, SectionNameDefine) {
 // ...
 
 ```
-可以看到，步骤多而繁琐，维护十分困难。
-而使用`HDTableViewDataSource`后
+可以看到，步骤多而繁琐，最让我受不了的是这种逻辑的分离，特别是在MVVM中严重影响了代码的內聚而且维护起来十分困难。
+而使用`HDTableViewMaker`后
 
 ``` objective-c
     [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
