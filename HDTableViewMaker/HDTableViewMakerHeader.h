@@ -6,14 +6,14 @@
 //  Copyright © 2016 Cocbin. All rights reserved.
 //
 
-#ifndef HDTableViewDataSource_h
-#define HDTableViewDataSource_h
+#ifndef HDTableViewMakerHeader_h
+#define HDTableViewMakerHeader_h
 
-#import "UITableView+HDTableViewDataSource.h"
-#import "HDTableViewDataSourceMaker.h"
-#import "HDTableSectionMaker.h"
-#import "HDTableCellMaker.h"
+#import "UITableView+HDTableViewMaker.h"
+#import "HDTableViewMaker.h"
+#import "HDSectionMaker.h"
+#import "HDCellMaker.h"
 #import "HDBaseTableViewDataSource.h"
 #import "UITableView+HDFreshUI.h"
-#import "UITableView+HD.h"
+
 #endif /* HDTableViewDataSource_h */

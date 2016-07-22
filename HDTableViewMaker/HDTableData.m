@@ -7,7 +7,7 @@
 //
 
 #import "HDTableData.h"
-#import "HDTableSectionMaker.h"
+#import "HDSectionMaker.h"
 
 @implementation HDTableData
 /**
@@ -36,7 +36,7 @@
     if (self.sectionCount>0&&self.sectionMakeBlock) {
         [_sectionDatas removeAllObjects];
         for (int i = 0; i<self.sectionCount; i++) {
-            HDTableSectionMaker * sectionMaker = [[HDTableSectionMaker alloc] initWithTableView:self.tableView];
+            HDSectionMaker * sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
             if (self.rowHeight!=0) {
                 sectionMaker.sectionData.rowHeight = self.rowHeight;
             }

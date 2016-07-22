@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "HDTableViewDataSource.h"
 #import "HDTableViewCell.h"
+#import "HDTableViewMakerHeader.h"
 
 @interface ViewController ()
 
@@ -22,16 +22,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[_mainTable hd_makeDataSource:^(HDTableViewDataSourceMaker *dataSourceMaker) {
+    [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
         
-        dataSourceMaker.hd_sectionCount(1)
-        .hd_section(^(HDTableSectionMaker * sectionMaker){
+        tableViewMaker.hd_sectionCount(1)
+        .hd_section(^(HDSectionMaker * sectionMaker){
             
             sectionMaker
             .dataArr(^(){
                 return self.dataArr;
             })
-            .hd_cell(^(HDTableCellMaker *cellMaker){
+            .hd_cell(^(HDCellMaker *cellMaker){
                 
                 cellMaker
                 .cell([HDTableViewCell class])

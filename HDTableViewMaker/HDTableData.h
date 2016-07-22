@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class HDSectionData,HDTableSectionMaker;
+@class HDSectionData,HDSectionMaker;
 
 typedef void (^CellWillDisplayBlock)(UITableView *tableView,UITableViewCell *willDisplayCell,NSIndexPath *indexPath);
 
@@ -16,7 +16,7 @@ typedef void (^CommitEditingBlock)(UITableView * tableView,UITableViewCellEditin
 
 typedef void (^ScrollViewDidScrollBlock)(UIScrollView *scrollView);
 
-typedef void (^SectionMakeBlock)(HDTableSectionMaker * sectionMaker);
+typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 
 @interface HDTableData : NSObject
 
@@ -31,8 +31,6 @@ typedef void (^SectionMakeBlock)(HDTableSectionMaker * sectionMaker);
 @property (nonatomic, assign) CGFloat rowHeight;
 
 @property (nonatomic, copy)  SectionMakeBlock sectionMakeBlock;
-
-//@property (nonatomic, copy) CellWillDisplayBlock cellWillDisplayBlock;
 
 @property(nonatomic, strong) NSMutableDictionary * otherDelegateBlocksDic;
 

@@ -7,9 +7,9 @@
 //
 
 #import "HDCellData.h"
-#import "UITableView+HD.h"
 #import "UITableView+FDTemplateLayoutCell.h"
-#import "UITableViewCell+HDTableViewDataSource.h"
+#import "UITableViewCell+HDTableViewMaker.h"
+#import "UITableView+HDTableViewMaker.h"
 
 @implementation HDCellData
 

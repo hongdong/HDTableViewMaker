@@ -64,7 +64,7 @@
     if (self.rowCount>0&&self.cellMakeBlock) {
         [_cellDatas removeAllObjects];
         for (int i = 0; i<self.rowCount; i++) {
-            HDTableCellMaker * cellMaker = [[HDTableCellMaker alloc] initWithTableView:self.tableView];
+            HDCellMaker * cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
             cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.section];
             cellMaker.cellData.data = self.modelDatas[i];
             cellMaker.cellData.rowHeight = self.rowHeight;

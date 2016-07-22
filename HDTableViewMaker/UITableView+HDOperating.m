@@ -6,24 +6,9 @@
 //  Copyright © 2015年 CuteMommy. All rights reserved.
 //
 
-#import "UITableView+HD.h"
-#import <objc/runtime.h>
+#import "UITableView+HDOperating.h"
 
-@implementation UITableView (HD)
-
-- (NSMutableDictionary *)tableViewRegisterCell
-{
-    NSMutableDictionary *dic = objc_getAssociatedObject(self, @selector(tableViewRegisterCell));
-    if (!dic) {
-        dic = [NSMutableDictionary dictionary];
-        [self setTableViewRegisterCell:dic];
-    }
-    return dic;
-}
-
-- (void)setTableViewRegisterCell:(NSMutableDictionary *)tableViewRegisterCell{
-    objc_setAssociatedObject(self, @selector(tableViewRegisterCell), tableViewRegisterCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+@implementation UITableView (HDOperating)
 
 
 - (void)updateWithBlock:(void (^)(UITableView *tableView))block {

@@ -1,15 +1,14 @@
 //
-//  HDTableCellMaker.m
-//  CBTableViewDataSourceDemo
+//  HDCellMaker.m
 //
 //  Created by 洪东 on 7/15/16.
 //  Copyright © 2016 Cocbin. All rights reserved.
 //
 
-#import "HDTableCellMaker.h"
+#import "HDCellMaker.h"
 #import "HDCellData.h"
 
-@implementation HDTableCellMaker
+@implementation HDCellMaker
 
 - (instancetype)initWithTableView:(UITableView *)tableView{
     self = [super init];
@@ -20,43 +19,43 @@
     
 }
 
-- (HDTableCellMaker * (^)())autoHeight {
-    return ^HDTableCellMaker * {
+- (HDCellMaker * (^)())autoHeight {
+    return ^HDCellMaker * {
         self.cellData.isAutoHeight = YES;
         return self;
     };
 }
 
-- (HDTableCellMaker * (^)(CGFloat))rowHeight{
-    return ^HDTableCellMaker *(CGFloat height){
+- (HDCellMaker * (^)(CGFloat))rowHeight{
+    return ^HDCellMaker *(CGFloat height){
         self.cellData.rowHeight = height;
         return self;
     };
 }
 
-- (HDTableCellMaker * (^)(Class))cell {
-    return ^HDTableCellMaker *(Class cell) {
+- (HDCellMaker * (^)(Class))cell {
+    return ^HDCellMaker *(Class cell) {
         self.cellData.cell = cell;
         return self;
     };
 }
 
-- (HDTableCellMaker * (^)(id))data {
-    return ^HDTableCellMaker *(id data) {
+- (HDCellMaker * (^)(id))data {
+    return ^HDCellMaker *(id data) {
         self.cellData.data = data;
         return self;
     };
 }
 
-- (HDTableCellMaker * (^)(CellAdapterBlock))adapter {
-    return ^HDTableCellMaker *(CellAdapterBlock adapterBlock) {
+- (HDCellMaker * (^)(CellAdapterBlock))adapter {
+    return ^HDCellMaker *(CellAdapterBlock adapterBlock) {
         self.cellData.adapter = adapterBlock;
         return self;
     };
 }
 
-- (HDTableCellMaker * (^)(CellEventBlock))event {
-    return ^HDTableCellMaker *(CellEventBlock event) {
+- (HDCellMaker * (^)(CellEventBlock))event {
+    return ^HDCellMaker *(CellEventBlock event) {
         self.cellData.event = event;
         return self;
     };

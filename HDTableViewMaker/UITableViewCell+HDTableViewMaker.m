@@ -6,10 +6,10 @@
 //  Copyright © 2016 abnerh. All rights reserved.
 //
 
-#import "UITableViewCell+HDTableViewDataSource.h"
+#import "UITableViewCell+HDTableViewMaker.h"
 #import <objc/runtime.h>
 
-@implementation UITableViewCell (HDTableViewDataSource)
+@implementation UITableViewCell (HDTableViewMaker)
 -(NSIndexPath *)indexPath{
     NSIndexPath *indexPath=objc_getAssociatedObject(self, _cmd);
     return indexPath;

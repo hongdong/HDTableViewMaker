@@ -1,24 +1,24 @@
 //
-//  HDTableViewDataSourceMaker.m
+//  HDTableViewMaker.m
 //  CBTableViewDataSourceDemo
 //
 //  Created by 洪东 on 7/15/16.
 //  Copyright © 2016 Cocbin. All rights reserved.
 //
 
-#import "HDTableViewDataSourceMaker.h"
+#import "HDTableViewMaker.h"
 #import "HDTableData.h"
-#import "HDTableSectionMaker.h"
+#import "HDSectionMaker.h"
 #import "HDSectionData.h"
 
 #define HDStringSelector(_SEL_) NSStringFromSelector(@selector(_SEL_))
 
 
-@interface HDTableViewDataSourceMaker ()<UITableViewDataSource,UITabBarDelegate>
+@interface HDTableViewMaker ()
 
 @end
 
-@implementation HDTableViewDataSourceMaker
+@implementation HDTableViewMaker
 
 - (instancetype)initWithTableView:(UITableView *)tableView{
     self = [super init];
@@ -29,8 +29,8 @@
 
 }
 
-- (HDTableViewDataSourceMaker * (^)(UIView * (^)()))hd_tableViewHeaderView {
-    return ^HDTableViewDataSourceMaker *(UIView * (^view)()) {
+- (HDTableViewMaker * (^)(UIView * (^)()))hd_tableViewHeaderView {
+    return ^HDTableViewMaker *(UIView * (^view)()) {
         UIView * headerView =  view();
         [self.tableData.tableView.tableHeaderView layoutIfNeeded];
         self.tableData.tableView.tableHeaderView = headerView;
@@ -38,8 +38,8 @@
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(UIView * (^)()))hd_tableViewFooterView {
-    return ^HDTableViewDataSourceMaker *(UIView * (^view)()) {
+- (HDTableViewMaker * (^)(UIView * (^)()))hd_tableViewFooterView {
+    return ^HDTableViewMaker *(UIView * (^view)()) {
         UIView * footerView =  view();
         [self.tableData.tableView.tableFooterView layoutIfNeeded];
         self.tableData.tableView.tableFooterView = footerView;
@@ -47,46 +47,46 @@
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(CGFloat))hd_height {
-    return ^HDTableViewDataSourceMaker *(CGFloat height) {
+- (HDTableViewMaker * (^)(CGFloat))hd_height {
+    return ^HDTableViewMaker *(CGFloat height) {
         self.tableData.rowHeight = height;
         self.tableData.tableView.rowHeight = height;
         return self;
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(NSInteger))hd_sectionCount {
-    return ^HDTableViewDataSourceMaker *(NSInteger sectionCount) {
+- (HDTableViewMaker * (^)(NSInteger))hd_sectionCount {
+    return ^HDTableViewMaker *(NSInteger sectionCount) {
         self.tableData.sectionCount = sectionCount;
         return self;
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(SectionMakeBlock))hd_section{
-    return ^HDTableViewDataSourceMaker *(SectionMakeBlock sectionMakeBlock){
+- (HDTableViewMaker * (^)(SectionMakeBlock))hd_section{
+    return ^HDTableViewMaker *(SectionMakeBlock sectionMakeBlock){
         self.tableData.sectionMakeBlock = sectionMakeBlock;
         return self;
     };
 }
 
 
-- (HDTableViewDataSourceMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay{
-    return ^HDTableViewDataSourceMaker *(CellWillDisplayBlock cellWillDisplayBlock){
+- (HDTableViewMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay{
+    return ^HDTableViewMaker *(CellWillDisplayBlock cellWillDisplayBlock){
 //        self.tableData.cellWillDisplayBlock = cellWillDisplayBlock;
         self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:willDisplayCell:forRowAtIndexPath:)] = cellWillDisplayBlock;
         return self;
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(CommitEditingBlock))hd_commitEditing{
-    return ^HDTableViewDataSourceMaker *(CommitEditingBlock commitEditingBlock){
+- (HDTableViewMaker * (^)(CommitEditingBlock))hd_commitEditing{
+    return ^HDTableViewMaker *(CommitEditingBlock commitEditingBlock){
         self.tableData.otherDelegateBlocksDic[HDStringSelector(tableView:commitEditingStyle:forRowAtIndexPath:)] = commitEditingBlock;
         return self;
     };
 }
 
-- (HDTableViewDataSourceMaker * (^)(ScrollViewDidScrollBlock))hd_scrollViewDidScroll{
-    return ^HDTableViewDataSourceMaker *(ScrollViewDidScrollBlock scrollViewDidScrollBlock){
+- (HDTableViewMaker * (^)(ScrollViewDidScrollBlock))hd_scrollViewDidScroll{
+    return ^HDTableViewMaker *(ScrollViewDidScrollBlock scrollViewDidScrollBlock){
         self.tableData.otherDelegateBlocksDic[HDStringSelector(scrollViewDidScroll:)] = scrollViewDidScrollBlock;
         return self;
     };

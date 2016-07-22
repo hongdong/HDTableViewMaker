@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableView (HD)
-
-@property (nonatomic,strong) NSMutableDictionary *tableViewRegisterCell;
+@interface UITableView (HDOperating)
 
 
 /**

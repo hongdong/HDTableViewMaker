@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "HDTableCellMaker.h"
+#import "HDCellMaker.h"
 
 typedef  NSArray * (^GetDataBlock)();
 
 typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
-typedef void (^CellMakeBlock)(HDTableCellMaker * sectionMaker);
+typedef void (^CellMakeBlock)(HDCellMaker * sectionMaker);
 
 @interface HDSectionData : NSObject
 

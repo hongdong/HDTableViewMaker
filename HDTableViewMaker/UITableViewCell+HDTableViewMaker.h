@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableViewCell (HDTableViewDataSource)
+@interface UITableViewCell (HDTableViewMaker)
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @end

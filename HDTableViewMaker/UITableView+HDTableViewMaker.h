@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@class HDBaseTableViewDataSource,HDTableViewDataSourceMaker;
-@interface UITableView (HDTableViewDataSource)
+@class HDBaseTableViewDataSource,HDTableViewMaker;
+@interface UITableView (HDTableViewMaker)
+
 @property(nonatomic, strong) HDBaseTableViewDataSource * hdTableViewDataSource;
 
-- (UITableView *)hd_makeDataSource:(void (^)(HDTableViewDataSourceMaker * make))maker;
+@property (nonatomic,strong) NSMutableDictionary *tableViewRegisterCell;
 
+
+- (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker * make))tableViewMaker;
 
 @end
 
