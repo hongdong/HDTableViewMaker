@@ -16,16 +16,16 @@
 
 @property (nonatomic, strong) HDCellData *cellData;
 
-- (HDCellMaker * (^)(CGFloat)) rowHeight;
+- (HDCellMaker * (^)(CGFloat)) hd_rowHeight;
 
-- (HDCellMaker * (^)())autoHeight;
+- (HDCellMaker * (^)())hd_autoHeight;
 
-- (HDCellMaker * (^)(Class))cell;
+- (HDCellMaker * (^)(Class))hd_cellClass;
 
-- (HDCellMaker * (^)(id))data;
+- (HDCellMaker * (^)(id))hd_data;
 
-- (HDCellMaker * (^)(CellAdapterBlock))adapter;
+- (HDCellMaker * (^)(CellAdapterBlock))hd_adapter;
 
-- (HDCellMaker * (^)(CellEventBlock))event;
+- (HDCellMaker * (^)(CellEventBlock))hd_event;
 
 @end

@@ -19,42 +19,42 @@
     
 }
 
-- (HDCellMaker * (^)())autoHeight {
+- (HDCellMaker * (^)())hd_autoHeight {
     return ^HDCellMaker * {
         self.cellData.isAutoHeight = YES;
         return self;
     };
 }
 
-- (HDCellMaker * (^)(CGFloat))rowHeight{
+- (HDCellMaker * (^)(CGFloat))hd_rowHeight{
     return ^HDCellMaker *(CGFloat height){
         self.cellData.rowHeight = height;
         return self;
     };
 }
 
-- (HDCellMaker * (^)(Class))cell {
+- (HDCellMaker * (^)(Class))hd_cellClass {
     return ^HDCellMaker *(Class cell) {
         self.cellData.cell = cell;
         return self;
     };
 }
 
-- (HDCellMaker * (^)(id))data {
+- (HDCellMaker * (^)(id))hd_data {
     return ^HDCellMaker *(id data) {
         self.cellData.data = data;
         return self;
     };
 }
 
-- (HDCellMaker * (^)(CellAdapterBlock))adapter {
+- (HDCellMaker * (^)(CellAdapterBlock))hd_adapter {
     return ^HDCellMaker *(CellAdapterBlock adapterBlock) {
         self.cellData.adapter = adapterBlock;
         return self;
     };
 }
 
-- (HDCellMaker * (^)(CellEventBlock))event {
+- (HDCellMaker * (^)(CellEventBlock))hd_event {
     return ^HDCellMaker *(CellEventBlock event) {
         self.cellData.event = event;
         return self;

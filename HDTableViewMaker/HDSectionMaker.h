@@ -15,26 +15,26 @@
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
 //- (HDSectionMaker * (^)(NSArray *))data;
-- (HDSectionMaker * (^)(GetDataBlock))dataArr;
+- (HDSectionMaker * (^)(GetDataBlock))hd_dataArr;
 
 
-- (HDSectionMaker * (^)(NSString *))headerTitle;
-- (HDSectionMaker * (^)(NSString *))footerTitle;
+- (HDSectionMaker * (^)(NSString *))hd_headerTitle;
+- (HDSectionMaker * (^)(NSString *))hd_footerTitle;
 
-- (HDSectionMaker * (^)(UIView * (^)()))headerView;
-- (HDSectionMaker * (^)(UIView * (^)()))footerView;
+- (HDSectionMaker * (^)(UIView * (^)()))hd_headerView;
+- (HDSectionMaker * (^)(UIView * (^)()))hd_footerView;
 
-- (HDSectionMaker * (^)(CGFloat)) rowHeight;
+- (HDSectionMaker * (^)(CGFloat)) hd_rowHeight;
 
-- (HDSectionMaker * (^)(CGFloat)) headerHeight;
-- (HDSectionMaker * (^)(CGFloat)) footerHeight;
+- (HDSectionMaker * (^)(CGFloat)) hd_headerHeight;
+- (HDSectionMaker * (^)(CGFloat)) hd_footerHeight;
 
 
 
 - (HDSectionMaker * (^)(NSInteger))hd_rowCount;
 
 
-- (HDSectionMaker * (^)(CellMakeBlock))hd_cell;
+- (HDSectionMaker * (^)(CellMakeBlock))hd_cellMaker;
 
 
 

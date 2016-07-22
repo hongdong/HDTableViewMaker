@@ -197,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07EC036B1D39E0C90088E5BE /* Build configuration list for PBXNativeTarget "HDTableViewMakerDemo" */;
 			buildPhases = (
+				F6EA723948170B36B25C42FB /* [CP] Check Pods Manifest.lock */,
 				D843BC3F5EA3EA0D25A5D285 /* [CP] Check Pods Manifest.lock */,
 				039D8178A374F3FC2AC4E7FE /* [CP] Check Pods Manifest.lock */,
 				07EC03501D39E0C80088E5BE /* Sources */,
@@ -204,6 +205,8 @@
 				07EC03521D39E0C80088E5BE /* Resources */,
 				607C984ED2A231CA5CD4CB8A /* [CP] Embed Pods Frameworks */,
 				CB74AE43B3422983DF3A2633 /* [CP] Copy Pods Resources */,
+				41CF371162F5B65133C40FC5 /* 📦 Embed Pods Frameworks */,
+				69779CBC631529D630EC46A7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +279,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		41CF371162F5B65133C40FC5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		607C984ED2A231CA5CD4CB8A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +307,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69779CBC631529D630EC46A7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB74AE43B3422983DF3A2633 /* [CP] Copy Pods Resources */ = {
@@ -307,6 +340,21 @@
 			showEnvVarsInLog = 0;
 		};
 		D843BC3F5EA3EA0D25A5D285 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6EA723948170B36B25C42FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

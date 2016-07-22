@@ -24,20 +24,15 @@
     [super viewDidLoad];
     [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
         
-        tableViewMaker.hd_sectionCount(1)
-        .hd_section(^(HDSectionMaker * sectionMaker){
+        tableViewMaker.hd_sectionCount(1).hd_sectionMaker(^(HDSectionMaker * sectionMaker){
             
-            sectionMaker
-            .dataArr(^(){
+            sectionMaker.hd_dataArr(^(){
                 return self.dataArr;
-            })
-            .hd_cell(^(HDCellMaker *cellMaker){
+            }).hd_cellMaker(^(HDCellMaker *cellMaker){
                 
-                cellMaker
-                .cell([HDTableViewCell class])
-                .adapter(^(HDTableViewCell *cell,id data,NSIndexPath *indexPath){
+                cellMaker.hd_cellClass([HDTableViewCell class]).hd_adapter(^(HDTableViewCell *cell,id data,NSIndexPath *indexPath){
                     cell.title = data;
-                }).autoHeight();
+                }).hd_autoHeight();
                 
             });
         });

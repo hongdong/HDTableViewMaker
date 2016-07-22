@@ -28,35 +28,35 @@
 //    };
 //}
 
-- (HDSectionMaker * (^)(NSString *))headerTitle {
+- (HDSectionMaker * (^)(NSString *))hd_headerTitle {
     return ^HDSectionMaker *(NSString * title) {
         self.sectionData.headerTitle = title;
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(NSString *))footerTitle {
+- (HDSectionMaker * (^)(NSString *))hd_footerTitle {
     return ^HDSectionMaker *(NSString * title) {
         self.sectionData.footerTitle = title;
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(CGFloat))rowHeight{
+- (HDSectionMaker * (^)(CGFloat))hd_rowHeight{
     return ^HDSectionMaker *(CGFloat height){
         self.sectionData.rowHeight = height;
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(CGFloat))headerHeight{
+- (HDSectionMaker * (^)(CGFloat))hd_headerHeight{
     return ^HDSectionMaker *(CGFloat height){
         self.sectionData.headerHeight = height;
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(CGFloat))footerHeight{
+- (HDSectionMaker * (^)(CGFloat))hd_footerHeight{
     return ^HDSectionMaker *(CGFloat height){
         self.sectionData.footerHeight = height;
         return self;
@@ -64,21 +64,21 @@
 }
 
 
-- (HDSectionMaker * (^)(UIView * (^)()))headerView {
+- (HDSectionMaker * (^)(UIView * (^)()))hd_headerView {
     return ^HDSectionMaker *(UIView * (^view)()) {
         self.sectionData.headerView = view();
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(GetDataBlock))dataArr{
+- (HDSectionMaker * (^)(GetDataBlock))hd_dataArr{
     return ^HDSectionMaker *(GetDataBlock getDataBlock){
         self.sectionData.getDataBlock = getDataBlock;
         return self;
     };
 }
 
-- (HDSectionMaker * (^)(UIView * (^)()))footerView {
+- (HDSectionMaker * (^)(UIView * (^)()))hd_footerView {
     return ^HDSectionMaker *(UIView * (^view)()) {
         self.sectionData.footerView = view();
         return self;
@@ -92,7 +92,7 @@
     };
 }
 
-- (HDSectionMaker * (^)(CellMakeBlock))hd_cell{
+- (HDSectionMaker * (^)(CellMakeBlock))hd_cellMaker{
     return ^HDSectionMaker *(CellMakeBlock cellMakerBlock){
         self.sectionData.cellMakeBlock = cellMakerBlock;
         return self;

@@ -62,7 +62,7 @@
     };
 }
 
-- (HDTableViewMaker * (^)(SectionMakeBlock))hd_section{
+- (HDTableViewMaker * (^)(SectionMakeBlock))hd_sectionMaker{
     return ^HDTableViewMaker *(SectionMakeBlock sectionMakeBlock){
         self.tableData.sectionMakeBlock = sectionMakeBlock;
         return self;
