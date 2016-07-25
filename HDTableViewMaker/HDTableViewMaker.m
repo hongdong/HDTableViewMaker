@@ -77,6 +77,11 @@
     };
 }
 
+- (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock{
+    self.tableData.sectionMakeBlock = sectionMakeBlock;
+    return self;
+}
+
 
 - (HDTableViewMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay{
     return ^HDTableViewMaker *(CellWillDisplayBlock cellWillDisplayBlock){

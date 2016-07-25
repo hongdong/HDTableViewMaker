@@ -13,7 +13,7 @@
 typedef  NSArray * (^GetDataBlock)();
 
 typedef  NSInteger (^NumberOfRowsBlock)(NSInteger section);
-typedef void (^CellMakeBlock)(HDCellMaker * sectionMaker);
+typedef void (^CellMakeBlock)(HDCellMaker * cellMaker);
 
 @interface HDSectionData : NSObject
 

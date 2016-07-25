@@ -29,6 +29,8 @@
 
 - (HDTableViewMaker * (^)(SectionMakeBlock))hd_sectionMaker;
 
+- (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock;
+
 - (HDTableViewMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay;
 
 - (HDTableViewMaker * (^)(CommitEditingBlock))hd_commitEditing;

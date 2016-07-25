@@ -36,6 +36,8 @@
 
 - (HDSectionMaker * (^)(CellMakeBlock))hd_cellMaker;
 
+- (HDSectionMaker *)hd_cellMaker:(CellMakeBlock)cellMakeBlock;
+
 
 
 @property(nonatomic, strong) HDSectionData * sectionData;

@@ -98,7 +98,10 @@
         return self;
     };
 }
-
+- (HDSectionMaker *)hd_cellMaker:(CellMakeBlock)cellMakeBlock{
+    self.sectionData.cellMakeBlock = cellMakeBlock;
+    return self;
+}
 
 /**
  *  GET
