@@ -22,38 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
-        
-        tableViewMaker.hd_sectionCount(1).hd_sectionMaker(^(HDSectionMaker * sectionMaker){
-            
-            sectionMaker.hd_dataArr(^(){
-                return self.dataArr;
-            }).hd_cellMaker(^(HDCellMaker *cellMaker){
-                
-                cellMaker.hd_cellClass([HDTableViewCell class]).hd_adapter(^(HDTableViewCell *cell,id data,NSIndexPath *indexPath){
-                    cell.title = data;
-                }).hd_autoHeight();
-                
-            });
-        });
-    }] hd_addAllFresh:^(HDFreshType freshType) {
-        
-    }];
     
     [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
         
         [tableViewMaker.hd_sectionCount(1) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
-            [sectionMaker.hd_dataArr(^(){
-                return self.dataArr;
-            }) hd_cellMaker:^(HDCellMaker *cellMaker) {
-                cellMaker.hd_cellClass([HDTableViewCell class]).hd_adapter(^(HDTableViewCell *cell,id data,NSIndexPath *indexPath){
-                    cell.title = data;
-                }).hd_autoHeight();
+            
+            [sectionMaker.hd_dataArr(HDDataArr(self.dataArr)) hd_cellMaker:^(HDCellMaker *cellMaker) {
+                cellMaker.hd_cellClass(HDCellClass(HDTableViewCell)).hd_adapter(HDAdapter(cell.title = data;)).hd_autoHeight();
             }];
 
         }];
-    }] hd_addAllFresh:^(HDFreshType freshType) {
         
+    }] hd_addAllFresh:^(HDFreshType freshType) {
+        [_mainTable hd_endFreshing:NO];
     }];
     
 }
