@@ -10,6 +10,15 @@
 #import "HDSectionMaker.h"
 
 @implementation HDTableData
+
+-(instancetype)initWithTableView:(UITableView *)tableView{
+    self = [super init];
+    if (self) {
+        self.tableView = tableView;
+    }
+    return self;
+}
+
 /**
  *  GET
  */

@@ -28,6 +28,14 @@
     return self;
 
 }
+- (instancetype)initWithTableData:(HDTableData *)tableData{
+    self = [super init];
+    if (self) {
+        self.tableData = tableData;
+    }
+    return self;
+
+}
 
 - (HDTableViewMaker * (^)(UIView * (^)()))hd_tableViewHeaderView {
     return ^HDTableViewMaker *(UIView * (^view)()) {

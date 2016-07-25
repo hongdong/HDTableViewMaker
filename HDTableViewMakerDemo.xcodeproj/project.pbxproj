@@ -66,8 +66,6 @@
 		07EC038C1D39E2950088E5BE /* HDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewCell.h; sourceTree = "<group>"; };
 		07EC038D1D39E2950088E5BE /* HDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableViewCell.m; sourceTree = "<group>"; };
 		07EC038E1D39E2950088E5BE /* HDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDTableViewCell.xib; sourceTree = "<group>"; };
-		5DE66D127FA52E6F3FE0137C /* Pods-HDTableViewDataSourceDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewDataSourceDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo.release.xcconfig"; sourceTree = "<group>"; };
-		831AEDE233C4EC2AEBE21594 /* Pods-HDTableViewDataSourceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewDataSourceDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewDataSourceDemo/Pods-HDTableViewDataSourceDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4973E41D3CC38E00FBE39E /* HDCommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDCommonHeader.h; sourceTree = "<group>"; };
 		BFC36B67B6A89EEE886E6487 /* libPods-HDTableViewMakerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HDTableViewMakerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACCCAC4C5AB4012E250B72 /* Pods-HDTableViewMakerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewMakerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,8 +180,6 @@
 		31A4226F5E36B3DF92D60D6C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				831AEDE233C4EC2AEBE21594 /* Pods-HDTableViewDataSourceDemo.debug.xcconfig */,
-				5DE66D127FA52E6F3FE0137C /* Pods-HDTableViewDataSourceDemo.release.xcconfig */,
 				CD435AA6A88C4875226EF910 /* Pods-HDTableViewMakerDemo.debug.xcconfig */,
 				C5ACCCAC4C5AB4012E250B72 /* Pods-HDTableViewMakerDemo.release.xcconfig */,
 			);

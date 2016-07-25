@@ -16,6 +16,9 @@
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
+- (instancetype)initWithTableData:(HDTableData *)tableData;
+
+
 - (HDTableViewMaker * (^)(CGFloat))hd_height;
 
 - (HDTableViewMaker * (^)(UIView * (^)()))hd_tableViewHeaderView;

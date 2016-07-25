@@ -6,5 +6,7 @@ pod 'UITableView+FDTemplateLayoutCell'
 
 pod 'MJRefresh'
 
+pod 'DZNEmptyDataSet'
+
 
 end

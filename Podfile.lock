@@ -1,15 +1,18 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - MJRefresh (3.1.10)
   - UITableView+FDTemplateLayoutCell (1.4)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - MJRefresh
   - UITableView+FDTemplateLayoutCell
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: 40ea2a815a021a9870cc4db5fc6f9d8ae2b49540
+PODFILE CHECKSUM: b9e1040fff2eba0ee56666592c2a818a961b4cd2
 
 COCOAPODS: 1.0.1

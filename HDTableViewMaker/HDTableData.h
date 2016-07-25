@@ -20,6 +20,8 @@ typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 
 @interface HDTableData : NSObject
 
+-(instancetype)initWithTableView:(UITableView *)tableView;
+
 @property(nonatomic, weak) UITableView * tableView;
 
 @property(nonatomic, strong) NSMutableArray<HDSectionData *> * sectionDatas;

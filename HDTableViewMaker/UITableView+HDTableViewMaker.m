@@ -19,6 +19,8 @@
 
 - (void)setHdTableViewDataSource:(HDBaseTableViewDataSource *)hdTableViewDataSource{
     objc_setAssociatedObject(self,@selector(hdTableViewDataSource),hdTableViewDataSource,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.delegate = hdTableViewDataSource;
+    self.dataSource = hdTableViewDataSource;
 }
 
 - (NSMutableDictionary *)tableViewRegisterCell
@@ -35,10 +37,22 @@
     objc_setAssociatedObject(self, @selector(tableViewRegisterCell), tableViewRegisterCell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+//- (UITableView *)hd_tableViewUpdate:(void (^)(HDTableViewMaker * make))tableViewMakerBlock{
+//    if (self.hdTableViewDataSource) {
+//        HDTableData *tableData = self.hdTableViewDataSource.tableData;
+//        HDTableViewMaker * tableViewmaker = [[HDTableViewMaker alloc] initWithTableData:tableData];
+//        tableViewMakerBlock(tableViewmaker);
+//
+//    }else{
+//        return [self hd_tableViewMaker:tableViewMakerBlock];
+//    }
+//    return self;
+//}
 
-- (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker *))tableViewmakerBlock{
+
+- (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker *))tableViewMakerBlock{
     HDTableViewMaker * tableViewmaker = [[HDTableViewMaker alloc] initWithTableView:self];
-    tableViewmakerBlock(tableViewmaker);
+    tableViewMakerBlock(tableViewmaker);
     Class DataSourceClass = [HDBaseTableViewDataSource class];
 //=============添加额外的代理===============
     
@@ -55,11 +69,10 @@
     }
 
 //==========================
-    id<HDBaseTableViewDataSourceProtocol> ds = (id<HDBaseTableViewDataSourceProtocol>) [DataSourceClass  new];
-    ds.tableData = tableViewmaker.tableData;
-    self.hdTableViewDataSource = ds;
-    self.dataSource = ds;
-    self.delegate = ds;
+    id<HDBaseTableViewDataSourceProtocol> dataSource = (id<HDBaseTableViewDataSourceProtocol>) [DataSourceClass  new];
+    dataSource.tableData = tableViewmaker.tableData;
+    self.hdTableViewDataSource = dataSource;
+
     return self;
 }
 

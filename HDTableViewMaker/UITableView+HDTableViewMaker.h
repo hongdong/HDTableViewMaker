@@ -17,6 +17,9 @@
 
 - (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker * make))tableViewMaker;
 
+//- (UITableView *)hd_tableViewUpdate:(void (^)(HDTableViewMaker * make))tableViewMaker;
+
+
 @end
 
 __attribute__((unused)) static void commitEditing(id self, SEL cmd, UITableView * tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath * indexPath);
