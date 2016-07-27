@@ -12,7 +12,7 @@
 #define HDDataArr(__dataArr__) ^(){return __dataArr__;}
 #define HDCellClass(_cellClass_) [_cellClass_ class]
 #define HDAdapter(_adapter_) \
-^(HDTableViewCell *cell,id data,NSIndexPath *indexPath){ \
+^(UITableViewCell *cell,id data,NSIndexPath *indexPath){ \
 _adapter_ \
 }
 
