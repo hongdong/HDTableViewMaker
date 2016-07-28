@@ -26,7 +26,7 @@ typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 
 @property(nonatomic, strong) NSMutableArray<HDSectionData *> * sectionDatas;
 
-@property (nonatomic, assign) NSInteger sectionCount;
+@property (nonatomic, assign) NSUInteger sectionCount;
 
 @property (nonatomic, strong) NSArray *dataArr;
 
