@@ -10,6 +10,14 @@
 #import "HDTableViewCell.h"
 #import "HDTableViewMakerHeader.h"
 
+#define HDDataArr(__dataArr__) ^(){return __dataArr__;}
+#define HDCellClass(_cellClass_) [_cellClass_ class]
+#define HDAdapter(_adapter_) \
+^(UITableViewCell *cell,id data,NSIndexPath *indexPath){ \
+_adapter_ \
+}
+
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
@@ -28,10 +36,9 @@
         [tableViewMaker.hd_sectionCount(1) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
             
             [sectionMaker.hd_dataArr(HDDataArr(self.dataArr)) hd_cellMaker:^(HDCellMaker *cellMaker) {
-                cellMaker.hd_cellClass(HDCellClass(HDTableViewCell))
-                .hd_adapter(HDAdapter(
+                cellMaker.hd_cellClass(HDCellClass(HDTableViewCell)).hd_adapter(HDAdapter(
                                     HDTableViewCell *myCell = (HDTableViewCell *)cell;
-                                    myCell.title = data;
+                                                    myCell.title = data;
                                       )).hd_autoHeight();
             }];
 
