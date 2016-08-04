@@ -15,7 +15,7 @@
 @property (nonatomic,strong) NSMutableDictionary *tableViewRegisterCell;
 
 
-- (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker * make))tableViewMaker;
+- (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker * tableMake))tableViewMaker;
 
 //- (UITableView *)hd_tableViewUpdate:(void (^)(HDTableViewMaker * make))tableViewMaker;
 

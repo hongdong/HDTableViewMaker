@@ -22,10 +22,15 @@
 
 - (HDCellMaker * (^)(Class))hd_cellClass;
 
+- (HDCellMaker * (^)(Class))hd_cellClassXib;
+
 - (HDCellMaker * (^)(id))hd_data;
 
 - (HDCellMaker * (^)(CellAdapterBlock))hd_adapter;
 
 - (HDCellMaker * (^)(CellEventBlock))hd_event;
+
+- (HDCellMaker * (^)(Class,CellAdapterBlock))hd_cellClassAndAdapter;
+
 
 @end

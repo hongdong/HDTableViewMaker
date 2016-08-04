@@ -37,7 +37,12 @@
     _cell = cell;
     if (!self.tableView.tableViewRegisterCell[self.cellIdentifier]) {//如果没有注册过
         UINib *nib = [UINib nibWithNibName:self.cellIdentifier bundle:nil];
-        [self.tableView registerNib:nib forCellReuseIdentifier:self.cellIdentifier];
+        if (self.cellRegisterType==HDCellRegisterTypeClass) {
+            [self.tableView registerClass:[cell class] forCellReuseIdentifier:self.cellIdentifier];
+        }else{
+            [self.tableView registerNib:nib forCellReuseIdentifier:self.cellIdentifier];
+        }
+
         [self.tableView.tableViewRegisterCell setValue:@(YES) forKey:self.cellIdentifier];
     }
 }

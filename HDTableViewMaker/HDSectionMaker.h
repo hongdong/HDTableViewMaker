@@ -14,7 +14,6 @@
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
-//- (HDSectionMaker * (^)(NSArray *))data;
 - (HDSectionMaker * (^)(GetDataBlock))hd_dataArr;
 
 

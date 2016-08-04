@@ -35,6 +35,15 @@
 
 - (HDCellMaker * (^)(Class))hd_cellClass {
     return ^HDCellMaker *(Class cell) {
+        self.cellData.cellRegisterType = HDCellRegisterTypeClass;
+        self.cellData.cell = cell;
+        return self;
+    };
+}
+
+- (HDCellMaker * (^)(Class))hd_cellClassXib {
+    return ^HDCellMaker *(Class cell) {
+        self.cellData.cellRegisterType = HDCellRegisterTypeXib;
         self.cellData.cell = cell;
         return self;
     };
@@ -54,6 +63,13 @@
     };
 }
 
+- (HDCellMaker * (^)(Class,CellAdapterBlock))hd_cellClassAndAdapter{
+    return ^HDCellMaker *(Class cell,CellAdapterBlock adapterBlock) {
+        self.cellData.cell = cell;
+        self.cellData.adapter = adapterBlock;
+        return self;
+    };
+}
 - (HDCellMaker * (^)(CellEventBlock))hd_event {
     return ^HDCellMaker *(CellEventBlock event) {
         self.cellData.event = event;
