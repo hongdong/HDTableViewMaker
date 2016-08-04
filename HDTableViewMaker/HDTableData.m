@@ -23,7 +23,7 @@
  *  GET
  */
 
--(NSInteger)sectionCount{
+-(NSUInteger)sectionCount{
 //    if (0==_sectionCount) {
 //        _sectionCount = 1;
 //    }
@@ -44,7 +44,7 @@
 -(void)doSectionMakeBlock{
     if (self.sectionCount>0&&self.sectionMakeBlock) {
         [_sectionDatas removeAllObjects];
-        for (int i = 0; i<self.sectionCount; i++) {
+        for (NSUInteger i = 0; i<self.sectionCount; i++) {
             HDSectionMaker * sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
             if (self.rowHeight!=0) {
                 sectionMaker.sectionData.rowHeight = self.rowHeight;

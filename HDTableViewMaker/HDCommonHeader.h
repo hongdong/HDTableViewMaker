@@ -135,21 +135,4 @@ titleLabel.font = HDFontBarTitle;\
 titleLabel.textAlignment = NSTextAlignmentCenter;\
 self.navigationItem.titleView = titleLabel;
 
-//collectView
-#define HDRegisterCollectCell(c) [c HDRegisteCollectCell:collectionView]
-#define HDGetCollectCell(c) [c HDGetCellForCollecView:collectionView indexPath:indexPath viewModel:self.viewModel]
-#define HDAutoRegisterGetCollectCell(c) HDRegisterCollectCell(c),HDGetCollectCell(c)
-
-#define HDGetCollectCellWithTabCell(c) [c HDGetCellForCollecView:collectionView indexPath:indexPath viewModel:self.viewModel tableCell:self]
-#define HDAutoRegisterGetCollectCellWithTabCell(c) HDRegisterCollectCell(c),HDGetCollectCellWithTabCell(c)
-//自动丢错误给父类
-#define HDAutoDealErrorsArr(_errorsArr_) [[RACSignal merge:_errorsArr_] subscribe:self.errors]
-
-#define HDAutoDealError(_error_) [_error_ subscribe:self.errors]
-
-
-#define HDPlaceholderImage [UIImage imageNamed:@"logo180"]
-
-#define HDPageCount 15
-
 #endif /* HDCommonHeader_h */

@@ -43,14 +43,14 @@
     return _footerHeight;
 }
 
--(NSInteger)rowCount{
+-(NSUInteger)rowCount{
     if (_rowCount==0) {
         _rowCount = self.modelDatas.count;
     }
     return _rowCount;
 }
 
--(void)setRowCount:(NSInteger)rowCount{
+-(void)setRowCount:(NSUInteger)rowCount{
     _rowCount = rowCount;
     [self doCellMakerBlock];
 }
@@ -63,7 +63,7 @@
 -(void)doCellMakerBlock{
     if (self.rowCount>0&&self.cellMakeBlock) {
         [_cellDatas removeAllObjects];
-        for (int i = 0; i<self.rowCount; i++) {
+        for (NSUInteger i = 0; i<self.rowCount; i++) {
             HDCellMaker * cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
             cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.section];
             cellMaker.cellData.data = self.modelDatas[i];

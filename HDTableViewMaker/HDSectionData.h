@@ -34,9 +34,9 @@ typedef void (^CellMakeBlock)(HDCellMaker * cellMaker);
 @property(nonatomic, assign) CGFloat rowHeight;
 
 
-@property (nonatomic, assign) NSInteger section;
+@property (nonatomic, assign) NSUInteger section;
 
-@property (nonatomic, assign) NSInteger rowCount;
+@property (nonatomic, assign) NSUInteger rowCount;
 
 
 
