@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface UITableViewCell (HDTableViewMaker)
+@property (nonatomic,weak) UITableView *tableView;
+
 @property (nonatomic, strong) NSIndexPath *indexPath;
+
+- (void)reloadRow:(UITableViewRowAnimation)animation;
+
 @end

@@ -16,6 +16,7 @@
 -(UITableViewCell *)getReturnCell{
     UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:self.indexPath];
     //NSLog(@"adaptBlock %@", [adaptBlock isEqual:nil]);
+    cell.tableView = self.tableView;
     cell.indexPath = self.indexPath;
     if(_adapter) {
         _adapter(cell,_data,_indexPath);
