@@ -19,6 +19,10 @@
     
 }
 
+- (NSIndexPath *)indexPath{
+    return self.cellData.indexPath;
+}
+
 - (HDCellMaker * (^)())hd_autoHeight {
     return ^HDCellMaker * {
         self.cellData.isAutoHeight = YES;

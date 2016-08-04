@@ -28,6 +28,10 @@
 //    };
 //}
 
+- (NSUInteger) section{
+    return self.sectionData.section;
+}
+
 - (HDSectionMaker * (^)(NSString *))hd_headerTitle {
     return ^HDSectionMaker *(NSString * title) {
         self.sectionData.headerTitle = title;

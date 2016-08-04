@@ -16,6 +16,8 @@
 
 - (HDSectionMaker * (^)(GetDataBlock))hd_dataArr;
 
+- (NSUInteger) section;
+
 
 - (HDSectionMaker * (^)(NSString *))hd_headerTitle;
 - (HDSectionMaker * (^)(NSString *))hd_footerTitle;

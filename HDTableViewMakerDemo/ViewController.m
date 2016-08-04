@@ -28,8 +28,11 @@
         [tableViewMaker.hd_sectionCount(1) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
             
             [sectionMaker.hd_dataArr(HDDataArr(self.dataArr)) hd_cellMaker:^(HDCellMaker *cellMaker) {
-                cellMaker.hd_cellClassXib(HDCellClass(HDTableViewCell))
-                .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = data;)).hd_autoHeight();
+                cellMaker
+                .hd_cellClassXib(HDCellClass(HDTableViewCell))
+                .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = data;))
+                .hd_event(HDEvent(NSLog(@"你好");))
+                .hd_autoHeight();
             }];
 
         }];

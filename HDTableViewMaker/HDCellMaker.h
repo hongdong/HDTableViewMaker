@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) HDCellData *cellData;
 
+- (NSIndexPath *) indexPath;
+
 - (HDCellMaker * (^)(CGFloat)) hd_rowHeight;
 
 - (HDCellMaker * (^)())hd_autoHeight;
