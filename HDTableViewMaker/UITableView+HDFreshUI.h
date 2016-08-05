@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MJRefresh.h>
 
-typedef void(^HDVoidBlock)();
+typedef void (^HDVoidBlock)();
 
 typedef NS_ENUM(NSInteger, HDFreshType) {
     HDFreshTypeFresh          = 0,
