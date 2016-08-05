@@ -69,7 +69,6 @@
 		07EC038C1D39E2950088E5BE /* HDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDTableViewCell.h; sourceTree = "<group>"; };
 		07EC038D1D39E2950088E5BE /* HDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDTableViewCell.m; sourceTree = "<group>"; };
 		07EC038E1D39E2950088E5BE /* HDTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HDTableViewCell.xib; sourceTree = "<group>"; };
-		AE4973E41D3CC38E00FBE39E /* HDCommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDCommonHeader.h; sourceTree = "<group>"; };
 		BFC36B67B6A89EEE886E6487 /* libPods-HDTableViewMakerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HDTableViewMakerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ACCCAC4C5AB4012E250B72 /* Pods-HDTableViewMakerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewMakerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CD435AA6A88C4875226EF910 /* Pods-HDTableViewMakerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDTableViewMakerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HDTableViewMakerDemo/Pods-HDTableViewMakerDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,7 +164,6 @@
 				072F15CD1D41046900F749C5 /* UITableView+HDTableViewMaker.m */,
 				072F15CE1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.h */,
 				072F15CF1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.m */,
-				AE4973E41D3CC38E00FBE39E /* HDCommonHeader.h */,
 				07C7A5821D53980C00541E8F /* NSObject+HDAssociated.h */,
 				07C7A5831D53980C00541E8F /* NSObject+HDAssociated.m */,
 			);
