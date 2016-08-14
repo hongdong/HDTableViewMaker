@@ -8,6 +8,7 @@
 
 #import "UITableView+HDLoading.h"
 #import "NSObject+HDAssociated.h"
+#import "NSBundle+HDTableViewMaker.h"
 
 @implementation UITableView (HDLoading)
 
@@ -113,12 +114,12 @@
     switch (self.hd_tableViewCoverType) {
         case HDTableViewCoverTypeEmpty:
         {
-            return [UIImage imageNamed:@"HDTableVIewMaker.bundle/placeholder_fancy"];
+            return [NSBundle hd_emptyImage];
         }
             break;
         case HDTableViewCoverTypeError:
         {
-            return [UIImage imageNamed:@"HDTableVIewMaker.bundle/placeholder_fancy"];
+            return [NSBundle hd_emptyImage];
         }
             break;
         case HDTableViewCoverTypeLoading:
