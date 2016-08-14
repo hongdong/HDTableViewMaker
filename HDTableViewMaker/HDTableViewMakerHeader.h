@@ -19,7 +19,7 @@ _adapter_ \
 }
 
 #define HDEvent(_event_) \
-^(NSIndexPath *indexPath,id data){ \
+^(UITableView *tableView,NSIndexPath *indexPath,id data){ \
 _event_ \
 }
 
@@ -30,5 +30,6 @@ _event_ \
 #import "HDCellMaker.h"
 #import "HDBaseTableViewDataSource.h"
 #import "UITableView+HDFreshUI.h"
+#import "UITableView+HDLoading.h"
 
 #endif /* HDTableViewDataSource_h */

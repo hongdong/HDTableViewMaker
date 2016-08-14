@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072EA5FA1D5FECDC004182DC /* HDTableViewMaker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 072EA5F91D5FECDC004182DC /* HDTableViewMaker.bundle */; };
 		072F15D01D41046900F749C5 /* UITableView+HDFreshUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15BA1D41046900F749C5 /* UITableView+HDFreshUI.m */; };
 		072F15D11D41046900F749C5 /* HDBaseTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15BC1D41046900F749C5 /* HDBaseTableViewDataSource.m */; };
 		072F15D21D41046900F749C5 /* HDCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15BE1D41046900F749C5 /* HDCellData.m */; };
@@ -18,6 +19,7 @@
 		072F15D81D41046900F749C5 /* UITableView+HDOperating.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15CB1D41046900F749C5 /* UITableView+HDOperating.m */; };
 		072F15D91D41046900F749C5 /* UITableView+HDTableViewMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15CD1D41046900F749C5 /* UITableView+HDTableViewMaker.m */; };
 		072F15DA1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F15CF1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.m */; };
+		077074081D5F66B70037043C /* UITableView+HDLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 077074071D5F66B70037043C /* UITableView+HDLoading.m */; };
 		07C7A5841D53980C00541E8F /* NSObject+HDAssociated.m in Sources */ = {isa = PBXBuildFile; fileRef = 07C7A5831D53980C00541E8F /* NSObject+HDAssociated.m */; };
 		07EC03591D39E0C90088E5BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC03581D39E0C90088E5BE /* main.m */; };
 		07EC035C1D39E0C90088E5BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EC035B1D39E0C90088E5BE /* AppDelegate.m */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072EA5F91D5FECDC004182DC /* HDTableViewMaker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HDTableViewMaker.bundle; sourceTree = "<group>"; };
 		072F15B91D41046900F749C5 /* UITableView+HDFreshUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HDFreshUI.h"; sourceTree = "<group>"; };
 		072F15BA1D41046900F749C5 /* UITableView+HDFreshUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDFreshUI.m"; sourceTree = "<group>"; };
 		072F15BB1D41046900F749C5 /* HDBaseTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDBaseTableViewDataSource.h; sourceTree = "<group>"; };
@@ -54,6 +57,9 @@
 		072F15CD1D41046900F749C5 /* UITableView+HDTableViewMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDTableViewMaker.m"; sourceTree = "<group>"; };
 		072F15CE1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HDTableViewMaker.h"; sourceTree = "<group>"; };
 		072F15CF1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HDTableViewMaker.m"; sourceTree = "<group>"; };
+		077074061D5F66B70037043C /* UITableView+HDLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HDLoading.h"; sourceTree = "<group>"; };
+		077074071D5F66B70037043C /* UITableView+HDLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HDLoading.m"; sourceTree = "<group>"; };
+		077074091D5F68A50037043C /* HDTMCommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDTMCommonHeader.h; sourceTree = "<group>"; };
 		07C7A5821D53980C00541E8F /* NSObject+HDAssociated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HDAssociated.h"; sourceTree = "<group>"; };
 		07C7A5831D53980C00541E8F /* NSObject+HDAssociated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HDAssociated.m"; sourceTree = "<group>"; };
 		07EC03541D39E0C80088E5BE /* HDTableViewMakerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDTableViewMakerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +147,10 @@
 		07EC036E1D39E0EE0088E5BE /* HDTableViewMaker */ = {
 			isa = PBXGroup;
 			children = (
+				072EA5F91D5FECDC004182DC /* HDTableViewMaker.bundle */,
 				072F15C71D41046900F749C5 /* HDTableViewMakerHeader.h */,
+				077074061D5F66B70037043C /* UITableView+HDLoading.h */,
+				077074071D5F66B70037043C /* UITableView+HDLoading.m */,
 				072F15B91D41046900F749C5 /* UITableView+HDFreshUI.h */,
 				072F15BA1D41046900F749C5 /* UITableView+HDFreshUI.m */,
 				072F15BB1D41046900F749C5 /* HDBaseTableViewDataSource.h */,
@@ -166,6 +175,7 @@
 				072F15CF1D41046900F749C5 /* UITableViewCell+HDTableViewMaker.m */,
 				07C7A5821D53980C00541E8F /* NSObject+HDAssociated.h */,
 				07C7A5831D53980C00541E8F /* NSObject+HDAssociated.m */,
+				077074091D5F68A50037043C /* HDTMCommonHeader.h */,
 			);
 			path = HDTableViewMaker;
 			sourceTree = "<group>";
@@ -255,6 +265,7 @@
 			files = (
 				07EC03671D39E0C90088E5BE /* LaunchScreen.storyboard in Resources */,
 				07EC03641D39E0C90088E5BE /* Assets.xcassets in Resources */,
+				072EA5FA1D5FECDC004182DC /* HDTableViewMaker.bundle in Resources */,
 				07EC03621D39E0C90088E5BE /* Main.storyboard in Resources */,
 				07EC03901D39E2950088E5BE /* HDTableViewCell.xib in Resources */,
 			);
@@ -389,6 +400,7 @@
 				072F15D31D41046900F749C5 /* HDSectionData.m in Sources */,
 				072F15D21D41046900F749C5 /* HDCellData.m in Sources */,
 				07EC03591D39E0C90088E5BE /* main.m in Sources */,
+				077074081D5F66B70037043C /* UITableView+HDLoading.m in Sources */,
 				072F15D91D41046900F749C5 /* UITableView+HDTableViewMaker.m in Sources */,
 				072F15D81D41046900F749C5 /* UITableView+HDOperating.m in Sources */,
 			);

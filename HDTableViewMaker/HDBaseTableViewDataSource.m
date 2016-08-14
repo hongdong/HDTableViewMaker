@@ -77,7 +77,7 @@
     HDCellData *cellData = self.tableData.sectionDatas[section].cellDatas[index];
     
     if (cellData.event) {
-        cellData.event(indexPath,cellData.data);
+        cellData.event(tableView,indexPath,cellData.data);
     }
     
 }

@@ -10,7 +10,7 @@
 
 @implementation UITableView (HDFreshUI)
 
--(UITableView *)hd_addFreshHeader:(HDVoidBlock)headerBlock{
+-(UITableView *)hd_addFreshHeader:(HDTMVoidBlock)headerBlock{
     if (headerBlock) {
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             headerBlock();
@@ -18,7 +18,7 @@
     }
     return self;
 }
--(UITableView *)hd_addFreshFooter:(HDVoidBlock)footerBlock{
+-(UITableView *)hd_addFreshFooter:(HDTMVoidBlock)footerBlock{
     if (footerBlock) {
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             footerBlock();

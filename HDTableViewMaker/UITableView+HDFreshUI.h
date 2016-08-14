@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MJRefresh.h>
+#import "HDTMCommonHeader.h"
 
-typedef void (^HDVoidBlock)();
 
 typedef NS_ENUM(NSInteger, HDFreshType) {
     HDFreshTypeFresh          = 0,
@@ -21,8 +21,8 @@ typedef void (^FreshBlock)(HDFreshType freshType);
 
 @interface UITableView (HDFreshUI)
 
--(UITableView *)hd_addFreshHeader:(HDVoidBlock)headerBlock;
--(UITableView *)hd_addFreshFooter:(HDVoidBlock)footerBlock;
+-(UITableView *)hd_addFreshHeader:(HDTMVoidBlock)headerBlock;
+-(UITableView *)hd_addFreshFooter:(HDTMVoidBlock)footerBlock;
 -(UITableView *)hd_addAllFresh:(FreshBlock)freshBlock;
 
 -(void)hd_endFreshing:(BOOL)existMoreData;
