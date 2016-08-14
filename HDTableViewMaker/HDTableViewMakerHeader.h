@@ -9,6 +9,8 @@
 #ifndef HDTableViewMakerHeader_h
 #define HDTableViewMakerHeader_h
 
+#define HDTableViewMakerVersion 1.0.1 /*  版本号 */
+
 #define HDDataArr(__dataArr__) ^(){return __dataArr__;}
 
 #define HDCellClass(_cellClass_) [_cellClass_ class]
