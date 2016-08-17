@@ -27,6 +27,8 @@
 
 - (HDTableViewMaker * (^)(NSInteger))hd_sectionCount;
 
+- (HDTableViewMaker * (^)(SectionCountBlock))hd_sectionCountBk;
+
 - (HDTableViewMaker * (^)(SectionMakeBlock))hd_sectionMaker;
 
 - (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock;

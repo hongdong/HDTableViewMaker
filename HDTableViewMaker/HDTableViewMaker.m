@@ -70,6 +70,13 @@
     };
 }
 
+- (HDTableViewMaker * (^)(SectionCountBlock))hd_sectionCountBk{
+    return ^HDTableViewMaker *(SectionCountBlock sectionCountBlock){
+        self.tableData.sectionCountBlock = sectionCountBlock;
+        return self;
+    };
+}
+
 - (HDTableViewMaker * (^)(SectionMakeBlock))hd_sectionMaker{
     return ^HDTableViewMaker *(SectionMakeBlock sectionMakeBlock){
         self.tableData.sectionMakeBlock = sectionMakeBlock;

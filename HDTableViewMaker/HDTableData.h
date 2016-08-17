@@ -18,6 +18,8 @@ typedef void (^ScrollViewDidScrollBlock)(UIScrollView *scrollView);
 
 typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 
+typedef NSInteger (^SectionCountBlock)();
+
 @interface HDTableData : NSObject
 
 -(instancetype)initWithTableView:(UITableView *)tableView;
@@ -33,6 +35,8 @@ typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 @property (nonatomic, assign) CGFloat rowHeight;
 
 @property (nonatomic, copy)  SectionMakeBlock sectionMakeBlock;
+
+@property (nonatomic, copy)  SectionCountBlock sectionCountBlock;
 
 @property(nonatomic, strong) NSMutableDictionary * otherDelegateBlocksDic;
 

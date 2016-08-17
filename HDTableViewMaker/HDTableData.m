@@ -24,12 +24,15 @@
  */
 
 -(NSUInteger)sectionCount{
-//    if (0==_sectionCount) {
-//        _sectionCount = 1;
-//    }
+    
+    if (self.sectionCountBlock) {
+        _sectionCount = self.sectionCountBlock();
+    }
+    
     if (0==_sectionCount&&self.sectionDatas.count>0) {
         _sectionCount = self.sectionDatas.count;
     }
+    
     return _sectionCount;
 }
 
