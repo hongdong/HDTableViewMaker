@@ -10,7 +10,7 @@
 #import "HDSectionMaker.h"
 
 @implementation HDTableData
-
+@synthesize sectionCount = _sectionCount;
 -(instancetype)initWithTableView:(UITableView *)tableView{
     self = [super init];
     if (self) {
@@ -26,37 +26,64 @@
 -(NSUInteger)sectionCount{
     
     if (self.sectionCountBlock) {
-        _sectionCount = self.sectionCountBlock(self.tableView);
+        [self setSectionCount:self.sectionCountBlock(self.tableView)];
     }
     
     if (0==_sectionCount&&self.sectionDatas.count>0) {
-        _sectionCount = self.sectionDatas.count;
+        [self setSectionCount:self.sectionDatas.count];
     }
     
     return _sectionCount;
+}
+
+-(void)setSectionCount:(NSUInteger)sectionCount{
+    _sectionCount = sectionCount;
 }
 
 -(NSMutableArray<HDSectionData *> *)sectionDatas{
     if (!_sectionDatas) {
         _sectionDatas = [NSMutableArray array];
     }
-    [self doSectionMakeBlock];
     return _sectionDatas;
 }
 
+-(void)setSectionMakeBlock:(SectionMakeBlock)sectionMakeBlock{
+    _sectionMakeBlock = sectionMakeBlock;
+}
+
 -(void)doSectionMakeBlock{
-    if (_sectionCount>0&&self.sectionMakeBlock) {
+    if (self.sectionCount>0&&self.sectionMakeBlock) {
         [_sectionDatas removeAllObjects];
-        for (NSUInteger i = 0; i<_sectionCount; i++) {
-            HDSectionMaker * sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
+        HDSectionMaker * sectionMaker = nil;
+        for (NSUInteger i = 0; i<self.sectionCount; i++) {
+            sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
             if (self.rowHeight!=0) {
                 sectionMaker.sectionData.rowHeight = self.rowHeight;
             }
             sectionMaker.sectionData.section = i;
             self.sectionMakeBlock(sectionMaker);
-            [_sectionDatas addObject:sectionMaker.sectionData];
+            [self.sectionDatas addObject:sectionMaker.sectionData];
         }
     }
+}
+
+- (void)doAddSectionMaker:(SectionMakeBlock)sectionMakerBlock{
+    
+    HDSectionMaker * sectionMaker = nil;
+    
+    sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
+    if (self.rowHeight!=0) {
+        sectionMaker.sectionData.rowHeight = self.rowHeight;
+    }
+    
+    sectionMaker.sectionData.section = self.sectionCount;
+    
+    self.sectionCount = self.sectionCount + 1;
+    
+    sectionMakerBlock(sectionMaker);
+    
+    [self.sectionDatas addObject:sectionMaker.sectionData];
+    
 }
 
 -(NSMutableDictionary *)otherDelegateBlocksDic{

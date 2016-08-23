@@ -44,35 +44,46 @@
 }
 
 -(NSUInteger)rowCount{
-    if (_rowCount==0) {
-        _rowCount = self.modelDatas.count;
-    }
+//    if (_rowCount==0) {
+//        _rowCount = self.modelDatas.count;
+//    }
     return _rowCount;
 }
 
 -(void)setRowCount:(NSUInteger)rowCount{
     _rowCount = rowCount;
-    [self doCellMakerBlock];
 }
 
 -(void)setCellMakeBlock:(CellMakeBlock)cellMakeBlock{
     _cellMakeBlock = cellMakeBlock;
-    [self doCellMakerBlock];
 }
 
 -(void)doCellMakerBlock{
-    if (self.rowCount>0&&self.cellMakeBlock) {
+    if ((self.rowCount>0||self.modelDatas.count>0)&&self.cellMakeBlock) {
         [_cellDatas removeAllObjects];
-        for (NSUInteger i = 0; i<self.rowCount; i++) {
-            HDCellMaker * cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
+        HDCellMaker * cellMaker = nil;
+        NSUInteger count = self.modelDatas.count>0?self.modelDatas.count:self.rowCount;
+        for (NSUInteger i = 0; i < count; i++) {
+            cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
             cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:i inSection:self.section];
             cellMaker.cellData.data = self.modelDatas[i];
             cellMaker.cellData.rowHeight = self.rowHeight;
             self.cellMakeBlock(cellMaker);
-            [_cellDatas addObject:cellMaker.cellData];
+            [self.cellDatas addObject:cellMaker.cellData];
         }
     }
     
+}
+
+- (void) doAddCellMakerBlock:(CellMakeBlock)cellMakerBlock{
+    HDCellMaker * cellMaker = nil;
+    cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
+    cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:self.rowCount inSection:self.section];
+    self.rowCount = self.rowCount + 1;
+    cellMaker.cellData.rowHeight = self.rowHeight;
+    cellMakerBlock(cellMaker);
+    [self.cellDatas addObject:cellMaker.cellData];
+
 }
 
 -(NSArray *)modelDatas{
@@ -86,7 +97,6 @@
     if (!_cellDatas) {
         _cellDatas = [NSMutableArray array];
     }
-    [self doCellMakerBlock];
     return _cellDatas;
 }
 @end

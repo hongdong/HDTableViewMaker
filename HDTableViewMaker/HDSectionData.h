@@ -46,7 +46,8 @@ typedef void (^CellMakeBlock)(HDCellMaker * cellMaker);
 
 @property(nonatomic, copy) GetDataBlock getDataBlock;
 
--(void)doCellMakerBlock;
+- (void) doCellMakerBlock;
 
+- (void) doAddCellMakerBlock:(CellMakeBlock)cellMakerBlock;
 
 @end

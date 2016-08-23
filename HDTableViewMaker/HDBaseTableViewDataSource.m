@@ -20,6 +20,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.tableData.sectionDatas[(NSUInteger) section].rowCount==0) {
+        return self.tableData.sectionDatas[(NSUInteger) section].modelDatas.count;
+    }
     return self.tableData.sectionDatas[(NSUInteger) section].rowCount;
 }
 

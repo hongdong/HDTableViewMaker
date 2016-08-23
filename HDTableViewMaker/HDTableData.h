@@ -22,7 +22,11 @@ typedef NSInteger (^SectionCountBlock)(UITableView *tableView);
 
 @interface HDTableData : NSObject
 
--(instancetype)initWithTableView:(UITableView *)tableView;
+-(instancetype) initWithTableView:(UITableView *)tableView;
+
+- (void) doAddSectionMaker:(SectionMakeBlock)sectionMakerBlock;
+
+- (void) doSectionMakeBlock;
 
 @property(nonatomic, weak) UITableView * tableView;
 
