@@ -16,7 +16,7 @@
 @implementation HDBaseTableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.tableData.sectionCount;
+        return self.tableData.sectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

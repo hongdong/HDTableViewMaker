@@ -30,7 +30,7 @@
     [_mainTable hd_coverLoading];
     [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
         
-        [tableViewMaker.hd_sectionCount(1) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
+        [tableViewMaker.hd_sectionCountBk(HDSectionCount(return 1;)) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
             
             [sectionMaker.hd_dataArr(HDDataArr(self.dataArr)) hd_cellMaker:^(HDCellMaker *cellMaker) {
                 cellMaker

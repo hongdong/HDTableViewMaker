@@ -4,7 +4,7 @@
 #ifndef HDTableViewMakerHeader_h
 #define HDTableViewMakerHeader_h
 
-#define HDTableViewMakerVersion 1.0.1 /*  版本号 */
+#define HDTableViewMakerVersion 1.0.3 /*  版本号 */
 
 #define HDDataArr(__dataArr__) ^(){return __dataArr__;}
 
@@ -18,6 +18,11 @@ _adapter_ \
 #define HDEvent(_event_) \
 ^(UITableView *tableView,NSIndexPath *indexPath,id data){ \
 _event_ \
+}
+
+#define HDSectionCount(_count_) \
+^NSInteger(UITableView *tableView){ \
+_count_ \
 }
 
 

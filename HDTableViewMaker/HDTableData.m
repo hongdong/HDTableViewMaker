@@ -26,7 +26,7 @@
 -(NSUInteger)sectionCount{
     
     if (self.sectionCountBlock) {
-        _sectionCount = self.sectionCountBlock();
+        _sectionCount = self.sectionCountBlock(self.tableView);
     }
     
     if (0==_sectionCount&&self.sectionDatas.count>0) {
