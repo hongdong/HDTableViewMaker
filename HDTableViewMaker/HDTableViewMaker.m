@@ -87,6 +87,13 @@
     };
 }
 
+- (HDTableViewMaker * (^)(SectionMakeBlock))hd_addSectionMaker{
+    return ^HDTableViewMaker *(SectionMakeBlock sectionMakeBlock){
+        [self.tableData doAddSectionMaker:sectionMakeBlock];
+        return self;
+    };
+}
+
 - (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock{
     self.tableData.sectionMakeBlock = sectionMakeBlock;
     [self.tableData doSectionMakeBlock];

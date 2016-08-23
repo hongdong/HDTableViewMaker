@@ -105,14 +105,20 @@
         return self;
     };
 }
-- (HDSectionMaker *)hd_cellMaker:(CellMakeBlock)cellMakeBlock{
-    self.sectionData.cellMakeBlock = cellMakeBlock;
+- (HDSectionMaker * (^)(CellMakeBlock))hd_addCellMaker{
+    return ^HDSectionMaker *(CellMakeBlock cellMakerBlock){
+        [self.sectionData doAddCellMakerBlock:cellMakerBlock];
+        return self;
+    };
+}
+- (HDSectionMaker *)hd_cellMaker:(CellMakeBlock)cellMakerBlock{
+    self.sectionData.cellMakeBlock = cellMakerBlock;
     [self.sectionData doCellMakerBlock];
     return self;
 }
 
-- (HDSectionMaker *)hd_addCellMaker:(CellMakeBlock)cellMakeBlock{
-    [self.sectionData doAddCellMakerBlock:cellMakeBlock];
+- (HDSectionMaker *)hd_addCellMaker:(CellMakeBlock)cellMakerBlock{
+    [self.sectionData doAddCellMakerBlock:cellMakerBlock];
     return self;
 }
 

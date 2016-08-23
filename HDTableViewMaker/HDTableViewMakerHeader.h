@@ -25,6 +25,17 @@ _event_ \
 _count_ \
 }
 
+#define HDAddSectionMaker(_maker_) \
+tableMaker.hd_addSectionMaker(^(HDSectionMaker *sectionMaker) { \
+_maker_ \
+})
+
+#define HDAddCellMaker(_maker_) \
+sectionMaker.hd_addCellMaker(^(HDCellMaker *cellMaker) { \
+_maker_ \
+})
+
+
 
 #import "UITableView+HDTableViewMaker.h"
 #import "HDTableViewMaker.h"

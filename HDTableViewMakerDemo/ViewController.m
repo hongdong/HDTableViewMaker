@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "HDTableViewCell.h"
 #import "HDTableViewMakerHeader.h"
-
+#import <UIKit/UIKit.h>
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTable;
@@ -57,23 +57,58 @@
     
 //静态方式的应用
     [_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableMaker) {
-       [tableMaker hd_addSectionMaker:^(HDSectionMaker *sectionMaker) {
-          [sectionMaker hd_addCellMaker:^(HDCellMaker *cellMaker) {
-              cellMaker
-              .hd_cellClassXib(HDCellClass(HDTableViewCell))
-              .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = @"静态表格测试";))
-              .hd_event(HDEvent(NSLog(@"你好");))
-              .hd_autoHeight();
-          }];
-       }];
+        
+        HDAddSectionMaker(
+                          
+            
+                          HDAddCellMaker(
+                               cellMaker
+                               .hd_cellClassXib(HDCellClass(HDTableViewCell))
+                               .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = @"静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试第一组第一个";))
+                               .hd_event(HDEvent(NSLog(@"你好");))
+                               .hd_autoHeight();
+                               );
+                          
+                          HDAddCellMaker(
+                                 cellMaker
+                                 .hd_cellClassXib(HDCellClass(HDTableViewCell))
+                                 .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = @"静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试第一组第二个";))
+                                 .hd_event(HDEvent(NSLog(@"你好");))
+                                 .hd_autoHeight();
+                                 );
+                          
+        );
+        
+        HDAddSectionMaker(
+                          
+                          sectionMaker.hd_headerView(^(){
+                                                        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+                                                        return view;
+                                                    });
+                          
+                          HDAddCellMaker(
+                                         cellMaker
+                                         .hd_cellClassXib(HDCellClass(HDTableViewCell))
+                                         .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = @"静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试第二组第一个";))
+                                         .hd_event(HDEvent(NSLog(@"你好");))
+                                         .hd_autoHeight();
+                                         );
+                          
+                          HDAddCellMaker(
+                                         cellMaker
+                                         .hd_cellClassXib(HDCellClass(HDTableViewCell))
+                                         .hd_adapter(HDAdapter(((HDTableViewCell *)cell).title = @"静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试静态表格测试第二组第二个";))
+                                         .hd_event(HDEvent(NSLog(@"你好");))
+                                         .hd_autoHeight();
+                                         );
+                          
+                          );
     }];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
 }
 /**
  *  GET

@@ -33,6 +33,8 @@
 
 - (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock;
 
+- (HDTableViewMaker * (^)(SectionMakeBlock))hd_addSectionMaker;
+
 - (HDTableViewMaker *) hd_addSectionMaker:(SectionMakeBlock)sectionMakeBlock;
 
 - (HDTableViewMaker * (^)(CellWillDisplayBlock))hd_cellWillDisplay;
