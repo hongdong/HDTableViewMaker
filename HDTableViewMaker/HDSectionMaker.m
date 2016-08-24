@@ -78,7 +78,6 @@
 - (HDSectionMaker * (^)(GetDataBlock))hd_dataArr{
     return ^HDSectionMaker *(GetDataBlock getDataBlock){
         self.sectionData.getDataBlock = getDataBlock;
-        [self.sectionData doCellMakerBlock];
         return self;
     };
 }
@@ -93,7 +92,6 @@
 - (HDSectionMaker * (^)(NSInteger))hd_rowCount{
     return ^HDSectionMaker *(NSInteger rowCount){
         self.sectionData.rowCount = rowCount;
-        [self.sectionData doCellMakerBlock];
         return self;
     };
 }
@@ -101,7 +99,6 @@
 - (HDSectionMaker * (^)(CellMakeBlock))hd_cellMaker{
     return ^HDSectionMaker *(CellMakeBlock cellMakerBlock){
         self.sectionData.cellMakeBlock = cellMakerBlock;
-        [self.sectionData doCellMakerBlock];
         return self;
     };
 }
@@ -113,7 +110,6 @@
 }
 - (HDSectionMaker *)hd_cellMaker:(CellMakeBlock)cellMakerBlock{
     self.sectionData.cellMakeBlock = cellMakerBlock;
-    [self.sectionData doCellMakerBlock];
     return self;
 }
 

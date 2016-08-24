@@ -62,6 +62,7 @@
             }
             sectionMaker.sectionData.section = i;
             self.sectionMakeBlock(sectionMaker);
+            [sectionMaker.sectionData doCellMakerBlock];
             [self.sectionDatas addObject:sectionMaker.sectionData];
         }
     }

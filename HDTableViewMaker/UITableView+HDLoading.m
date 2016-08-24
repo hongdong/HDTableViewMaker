@@ -51,7 +51,6 @@
     // 一定要放在后面，因为上面的代码在设值，要设置完之后数据源的判断条件才能成立
     self.emptyDataSetSource = self;
     self.emptyDataSetDelegate = self;
-    [self reloadData];
     [self reloadEmptyDataSet];
 }
 

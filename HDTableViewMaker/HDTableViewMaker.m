@@ -66,7 +66,6 @@
 - (HDTableViewMaker * (^)(NSInteger))hd_sectionCount {
     return ^HDTableViewMaker *(NSInteger sectionCount) {
         self.tableData.sectionCount = sectionCount;
-        [self.tableData doSectionMakeBlock];
         return self;
     };
 }
@@ -74,7 +73,6 @@
 - (HDTableViewMaker * (^)(SectionCountBlock))hd_sectionCountBk{
     return ^HDTableViewMaker *(SectionCountBlock sectionCountBlock){
         self.tableData.sectionCountBlock = sectionCountBlock;
-        [self.tableData doSectionMakeBlock];
         return self;
     };
 }
@@ -82,7 +80,6 @@
 - (HDTableViewMaker * (^)(SectionMakeBlock))hd_sectionMaker{
     return ^HDTableViewMaker *(SectionMakeBlock sectionMakeBlock){
         self.tableData.sectionMakeBlock = sectionMakeBlock;
-        [self.tableData doSectionMakeBlock];
         return self;
     };
 }
@@ -96,7 +93,6 @@
 
 - (HDTableViewMaker *) hd_sectionMaker:(SectionMakeBlock)sectionMakeBlock{
     self.tableData.sectionMakeBlock = sectionMakeBlock;
-    [self.tableData doSectionMakeBlock];
     return self;
 }
 

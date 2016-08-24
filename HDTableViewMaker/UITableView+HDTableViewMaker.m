@@ -11,7 +11,81 @@
 #import <objc/runtime.h>
 #import "HDTableViewMaker.h"
 #import "HDTableData.h"
+
+void HDExchangeImplementations(Class class, SEL newSelector, SEL oldSelector) {
+    Method oldMethod = class_getInstanceMethod(class, newSelector);
+    Method newMethod = class_getInstanceMethod(class, oldSelector);
+    method_exchangeImplementations(oldMethod, newMethod);
+};
+
 @implementation UITableView (HDTableViewMaker)
+
++ (void)load {
+    // All methods that trigger height cache's invalidation
+    SEL selectors[] = {
+        @selector(reloadData),
+        @selector(insertSections:withRowAnimation:),
+        @selector(deleteSections:withRowAnimation:),
+        @selector(reloadSections:withRowAnimation:),
+        @selector(moveSection:toSection:),
+        @selector(insertRowsAtIndexPaths:withRowAnimation:),
+        @selector(deleteRowsAtIndexPaths:withRowAnimation:),
+        @selector(reloadRowsAtIndexPaths:withRowAnimation:),
+        @selector(moveRowAtIndexPath:toIndexPath:)
+    };
+    
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"hd_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        HDExchangeImplementations(self, originalSelector, swizzledSelector);
+    }
+}
+
+- (void) hd_reloadData{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_reloadData];
+}
+
+- (void)hd_moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+}
+
+- (void)hd_reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
+- (void)hd_deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
+- (void)hd_insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+}
+
+- (void)hd_moveSection:(NSInteger)section toSection:(NSInteger)newSection{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_moveSection:section toSection:newSection];
+}
+
+- (void)hd_reloadSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_reloadSections:sections withRowAnimation:animation];
+}
+
+
+- (void)hd_insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_insertSections:sections withRowAnimation:animation];
+}
+
+- (void)hd_deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation{
+    [self.hdTableViewDataSource.tableData doSectionMakeBlock];
+    [self hd_insertSections:sections withRowAnimation:animation];
+}
 
 - (HDBaseTableViewDataSource *)hdTableViewDataSource {
     return objc_getAssociatedObject(self,_cmd);
@@ -70,6 +144,7 @@
 
 //==========================
     id<HDBaseTableViewDataSourceProtocol> dataSource = (id<HDBaseTableViewDataSourceProtocol>) [DataSourceClass  new];
+    [tableViewmaker.tableData doSectionMakeBlock];
     dataSource.tableData = tableViewmaker.tableData;
     self.hdTableViewDataSource = dataSource;
 
