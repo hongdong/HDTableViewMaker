@@ -21,7 +21,7 @@ _event_ \
 }
 
 #define HDSectionCount(_count_) \
-^NSInteger(UITableView *tableView){ \
+^NSUInteger(UITableView *tableView){ \
 _count_ \
 }
 

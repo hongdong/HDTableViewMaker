@@ -17,8 +17,6 @@
 
 - (UITableView *)hd_tableViewMaker:(void (^)(HDTableViewMaker * tableMaker))tableViewMaker;
 
-//- (UITableView *)hd_tableViewUpdate:(void (^)(HDTableViewMaker * make))tableViewMaker;
-
 
 @end
 

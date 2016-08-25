@@ -83,6 +83,11 @@
  */
 
 #pragma mark - DZNEmptyDataSetSource
+
+- (BOOL)emptyDataSetShouldFadeIn:(UIScrollView *)scrollView{
+    return YES;
+}
+
 // 返回一个自定义的view（优先级最高）
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
 {
