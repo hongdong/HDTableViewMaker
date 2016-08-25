@@ -18,7 +18,7 @@ typedef void (^ScrollViewDidScrollBlock)(UIScrollView *scrollView);
 
 typedef void (^SectionMakeBlock)(HDSectionMaker * sectionMaker);
 
-typedef NSInteger (^SectionCountBlock)(UITableView *tableView);
+typedef NSUInteger (^SectionCountBlock)(UITableView *tableView);
 
 @interface HDTableData : NSObject
 
