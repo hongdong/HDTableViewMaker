@@ -43,7 +43,6 @@ _maker_ \
 #import "HDCellMaker.h"
 #import "HDBaseTableViewDataSource.h"
 #import "UITableView+HDFreshUI.h"
-#import "UITableView+HDLoading.h"
 #import "UITableViewCell+HDTableViewMaker.h"
 
 #endif /* HDTableViewDataSource_h */
