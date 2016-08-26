@@ -81,7 +81,7 @@
         _titleLabel.numberOfLines = 0;
         _titleLabel.accessibilityIdentifier = @"empty set title";
         
-        _titleLabel.text = @"暂无数据";
+        _titleLabel.text = @"没有数据！您可以尝试重新获取";
     }
     return _titleLabel;
 }
@@ -95,7 +95,7 @@
         _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         _button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _button.accessibilityIdentifier = @"empty set button";
-        [_button setTitle:@"重新请求" forState:UIControlStateNormal];
+        [_button setTitle:@"再次刷新" forState:UIControlStateNormal];
         [_button setTitleColor:[UIColor colorWithRed:253/255.0f green:120/255.0f blue:76/255.0f alpha:1] forState:UIControlStateNormal];
         _button.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
         [_button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -484,7 +484,7 @@
  *  GET
  */
 
--(void)setHd_tableViewCoverType:(HDTableViewCoverType)hd_tableViewCoverType{
+- (void)setHd_tableViewCoverType:(HDTableViewCoverType)hd_tableViewCoverType{
     if (self.hd_tableViewCoverType == hd_tableViewCoverType) {
         return;
     }
@@ -492,12 +492,28 @@
     [self hd_coverType:hd_tableViewCoverType];
 }
 
--(HDTableViewCoverType)hd_tableViewCoverType
+- (HDTableViewCoverType)hd_tableViewCoverType
 {
     // 注意，取出的是一个对象，不能直接返回
     id tmp = [self hd_getAssociatedObjectWithKey:_cmd];
     NSNumber *number = tmp;
     return number.unsignedIntegerValue;
+}
+
+- (HDTMVoidBlock)hd_errorBtnClickBlock{
+    return self.coverSetView.hd_errorBtnClickBlock;
+}
+
+- (HDTMVoidBlock)hd_emptyBtnClickBlock{
+    return self.coverSetView.hd_emptyBtnClickBlock;
+}
+
+- (void)setHd_errorBtnClickBlock:(HDTMVoidBlock)hd_errorBtnClickBlock{
+   self.coverSetView.hd_errorBtnClickBlock = hd_errorBtnClickBlock;
+}
+
+- (void)setHd_emptyBtnClickBlock:(HDTMVoidBlock)hd_emptyBtnClickBlock{
+    self.coverSetView.hd_emptyBtnClickBlock = hd_emptyBtnClickBlock;
 }
 
 @end
