@@ -16,6 +16,7 @@
 @implementation HDBaseTableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+        [self.tableData doSectionMakeBlock];
         return self.tableData.sectionCount;
 }
 

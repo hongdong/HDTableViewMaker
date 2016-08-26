@@ -42,7 +42,7 @@
 
 -(NSMutableArray<HDSectionData *> *)sectionDatas{
     if (!_sectionDatas) {
-        [self doSectionMakeBlock];
+        _sectionDatas = [NSMutableArray array];
     }
     return _sectionDatas;
 }
@@ -53,7 +53,7 @@
 
 -(void)doSectionMakeBlock{
     if (self.sectionCount>0&&self.sectionMakeBlock) {
-        _sectionDatas = [NSMutableArray array];
+        [_sectionDatas removeAllObjects];
         HDSectionMaker * sectionMaker = nil;
         for (NSUInteger i = 0; i<self.sectionCount; i++) {
             sectionMaker = [[HDSectionMaker alloc] initWithTableView:self.tableView];
@@ -63,7 +63,7 @@
             sectionMaker.sectionData.section = i;
             self.sectionMakeBlock(sectionMaker);
             [sectionMaker.sectionData doCellMakerBlock];
-            [_sectionDatas addObject:sectionMaker.sectionData];
+            [self.sectionDatas addObject:sectionMaker.sectionData];
         }
     }
 }
