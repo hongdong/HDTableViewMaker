@@ -23,7 +23,15 @@
 {
     static UIImage *arrowImage = nil;
     if (arrowImage == nil) {
-        arrowImage = [[UIImage imageWithContentsOfFile:[[self hd_tableViewMakerBundle] pathForResource:@"placeholder_fancy@2x" ofType:@"png"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        arrowImage = [[UIImage imageWithContentsOfFile:[[self hd_tableViewMakerBundle] pathForResource:@"hd_tm_empty_icon@2x" ofType:@"png"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    return arrowImage;
+}
++ (UIImage *)hd_errorImage
+{
+    static UIImage *arrowImage = nil;
+    if (arrowImage == nil) {
+        arrowImage = [[UIImage imageWithContentsOfFile:[[self hd_tableViewMakerBundle] pathForResource:@"hd_tm_error_icon@2x" ofType:@"png"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     return arrowImage;
 }

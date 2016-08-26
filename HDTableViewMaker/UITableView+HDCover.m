@@ -9,31 +9,7 @@
 #import "UITableView+HDCover.h"
 #import "NSObject+HDAssociated.h"
 #import "NSBundle+HDTableViewMaker.h"
-
-#pragma mark - UIView+HDConstraintBasedLayoutExtensions
-
-
-@interface UIView (HDConstraintBasedLayoutExtensions)
-
-- (NSLayoutConstraint *)equallyRelatedConstraintWithView:(UIView *)view attribute:(NSLayoutAttribute)attribute;
-
-@end
-
-
-@implementation UIView (HDConstraintBasedLayoutExtensions)
-
-- (NSLayoutConstraint *)equallyRelatedConstraintWithView:(UIView *)view attribute:(NSLayoutAttribute)attribute
-{
-    return [NSLayoutConstraint constraintWithItem:view
-                                        attribute:attribute
-                                        relatedBy:NSLayoutRelationEqual
-                                           toItem:self
-                                        attribute:attribute
-                                       multiplier:1.0
-                                         constant:0.0];
-}
-
-@end
+#import "Masonry.h"
 
 #pragma mark - HDCoverSetView
 
@@ -41,6 +17,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, copy) HDTMVoidBlock reloadClickBlock;
 @end
 
 @implementation HDCoverSetEmptyView
@@ -59,59 +36,21 @@
 - (void)setupConstraints
 {
     
-        CGFloat width = CGRectGetWidth(self.frame) ? : CGRectGetWidth([UIScreen mainScreen].bounds);
-        CGFloat padding = roundf(width/16.0);
-        CGFloat verticalSpace = 11.0; // Default is 11 pts
-        
-        NSMutableArray *subviewStrings = [NSMutableArray array];
-        NSMutableDictionary *views = [NSMutableDictionary dictionary];
-        NSDictionary *metrics = @{@"padding": @(padding)};
-        
-        // Assign the image view's horizontal constraints
-        if (_imageView.superview) {
-            
-            [subviewStrings addObject:@"imageView"];
-            views[[subviewStrings lastObject]] = _imageView;
-            
-            [self addConstraint:[self equallyRelatedConstraintWithView:_imageView attribute:NSLayoutAttributeCenterX]];
-        }
-        
-        // Assign the title label's horizontal constraints
+   [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.size.mas_equalTo(CGSizeMake(50, 50));
+       make.centerX.mas_equalTo(self);
+       make.centerY.mas_equalTo(self).with.offset(-30);
+   }];
     
-            [subviewStrings addObject:@"titleLabel"];
-            views[[subviewStrings lastObject]] = _titleLabel;
-            
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding@750)-[titleLabel(>=0)]-(padding@750)-|"
-                                                                                     options:0 metrics:metrics views:views]];
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_imageView);
+        make.top.mas_equalTo(_imageView.mas_bottom).with.offset(8);
+    }];
     
-        
-        // Assign the button's horizontal constraints
-    
-            [subviewStrings addObject:@"button"];
-            views[[subviewStrings lastObject]] = _button;
-            
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding@750)-[button(>=0)]-(padding@750)-|"
-                                                                                     options:0 metrics:metrics views:views]];
-        
-        
-        NSMutableString *verticalFormat = [NSMutableString new];
-        
-        // Build a dynamic string format for the vertical constraints, adding a margin between each element. Default is 11 pts.
-        for (int i = 0; i < subviewStrings.count; i++) {
-            
-            NSString *string = subviewStrings[i];
-            [verticalFormat appendFormat:@"[%@]", string];
-            
-            if (i < subviewStrings.count-1) {
-                [verticalFormat appendFormat:@"-(%.f@750)-", verticalSpace];
-            }
-        }
-        
-        // Assign the vertical constraints to the content view
-        if (verticalFormat.length > 0) {
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|%@|", verticalFormat]
-                                                                                     options:0 metrics:metrics views:views]];
-        }
+    [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_titleLabel);
+        make.top.mas_equalTo(_titleLabel.mas_bottom).with.offset(20);
+    }];
     
 }
 
@@ -120,10 +59,8 @@
     if (!_imageView)
     {
         _imageView = [UIImageView new];
-        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
         _imageView.backgroundColor = [UIColor clearColor];
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _imageView.userInteractionEnabled = NO;
         _imageView.accessibilityIdentifier = @"empty set background image";
         _imageView.image = [NSBundle hd_emptyImage];
     }
@@ -135,10 +72,9 @@
     if (!_titleLabel)
     {
         _titleLabel = [UILabel new];
-        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _titleLabel.backgroundColor = [UIColor clearColor];
         
-        _titleLabel.font = [UIFont systemFontOfSize:27.0];
+        _titleLabel.font = [UIFont systemFontOfSize:14.0];
         _titleLabel.textColor = [UIColor colorWithWhite:0.6 alpha:1.0];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -155,25 +91,120 @@
     if (!_button)
     {
         _button = [UIButton buttonWithType:UIButtonTypeCustom];
-        _button.translatesAutoresizingMaskIntoConstraints = NO;
         _button.backgroundColor = [UIColor clearColor];
         _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         _button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _button.accessibilityIdentifier = @"empty set button";
         [_button setTitle:@"重新请求" forState:UIControlStateNormal];
+        [_button setTitleColor:[UIColor colorWithRed:253/255.0f green:120/255.0f blue:76/255.0f alpha:1] forState:UIControlStateNormal];
+        _button.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
         [_button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
 }
 
+- (void)didTapButton:(UIButton *)sender{
+    if (self.reloadClickBlock) {
+        self.reloadClickBlock();
+    }
+}
+
 @end
 
-@interface HDCoverSetErrorView : HDCoverSetEmptyView
-
+@interface HDCoverSetErrorView : UIView
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, copy) HDTMVoidBlock reloadClickBlock;
 @end
 
 @implementation HDCoverSetErrorView
+- (instancetype) init{
+    self = [super init];
+    if (self) {
+        [self addSubview:self.imageView];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.button];
+        [self setupConstraints];
+    }
+    return self;
+}
 
+- (void)setupConstraints
+{
+    
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(50, 50));
+        make.centerX.mas_equalTo(self);
+        make.centerY.mas_equalTo(self).with.offset(-30);
+    }];
+    
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_imageView);
+        make.top.mas_equalTo(_imageView.mas_bottom).with.offset(8);
+    }];
+    
+    [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_titleLabel);
+        make.top.mas_equalTo(_titleLabel.mas_bottom).with.offset(20);
+    }];
+    
+}
+
+- (UIImageView *)imageView
+{
+    if (!_imageView)
+    {
+        _imageView = [UIImageView new];
+        _imageView.backgroundColor = [UIColor clearColor];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.accessibilityIdentifier = @"empty set background image";
+        _imageView.image = [NSBundle hd_errorImage];
+    }
+    return _imageView;
+}
+
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel)
+    {
+        _titleLabel = [UILabel new];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        
+        _titleLabel.font = [UIFont systemFontOfSize:14.0];
+        _titleLabel.textColor = [UIColor colorWithWhite:0.6 alpha:1.0];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _titleLabel.numberOfLines = 0;
+        _titleLabel.accessibilityIdentifier = @"empty set title";
+        
+        _titleLabel.text = @"发生了点小差错";
+    }
+    return _titleLabel;
+}
+
+- (UIButton *)button
+{
+    if (!_button)
+    {
+        _button = [UIButton buttonWithType:UIButtonTypeCustom];
+        _button.backgroundColor = [UIColor clearColor];
+        _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        _button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _button.accessibilityIdentifier = @"empty set button";
+        [_button setTitle:@"重新请求" forState:UIControlStateNormal];
+        [_button setTitleColor:[UIColor colorWithRed:253/255.0f green:120/255.0f blue:76/255.0f alpha:1] forState:UIControlStateNormal];
+        _button.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+        [_button addTarget:self action:@selector(didTapButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _button;
+}
+
+- (void)didTapButton:(UIButton *)sender{
+    if (self.reloadClickBlock) {
+        self.reloadClickBlock();
+    }
+}
 @end
 
 @interface HDCoverSetLodingView : UIView
@@ -194,8 +225,10 @@
 
 - (void)setupConstraints
 {
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[activityView]|" options:0 metrics:nil views:@{@"activityView":self.activityView}]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[activityView]|" options:0 metrics:nil views:@{@"activityView":self.activityView}]];
+
+    [self.activityView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self);
+    }];
 
 }
 
@@ -203,7 +236,6 @@
 {
     if (!_activityView) {
         _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _activityView.translatesAutoresizingMaskIntoConstraints = NO;
         [_activityView startAnimating];
     }
     return _activityView;
@@ -213,6 +245,10 @@
 
 
 @interface HDCoverSetView : UIView
+
+@property (nonatomic, copy) HDTMVoidBlock hd_emptyBtnClickBlock;
+
+@property (nonatomic, copy) HDTMVoidBlock hd_errorBtnClickBlock;
 
 @property (nonatomic, assign) HDTableViewCoverType hd_tableViewCoverType;
 
@@ -226,8 +262,6 @@
 
 @property (nonatomic, assign) CGFloat verticalOffset;
 @property (nonatomic, assign) CGFloat verticalSpace;
-
-- (void)setupConstraints;
 
 - (void)configCoverType:(HDTableViewCoverType)coverType;
 
@@ -251,6 +285,9 @@
         [self.curCoverView removeFromSuperview];
         _hd_tableViewCoverType = coverType;
         [self addSubview:self.curCoverView];
+        [self.curCoverView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
     }
 }
 
@@ -303,8 +340,7 @@
 {
     if (!_coverLoadingView) {
         _coverLoadingView = [HDCoverSetLodingView new];
-        _coverLoadingView.translatesAutoresizingMaskIntoConstraints = NO;
-        _coverLoadingView.backgroundColor = [UIColor clearColor];
+//        _coverLoadingView.backgroundColor = [UIColor clearColor];
         _coverLoadingView.userInteractionEnabled = YES;
         _coverLoadingView.alpha = 0;
     }
@@ -315,10 +351,15 @@
 {
     if (!_coverEmptyView) {
         _coverEmptyView = [HDCoverSetEmptyView new];
-        _coverEmptyView.translatesAutoresizingMaskIntoConstraints = NO;
-        _coverEmptyView.backgroundColor = [UIColor whiteColor];
+//        _coverEmptyView.backgroundColor = [UIColor whiteColor];
         _coverEmptyView.userInteractionEnabled = YES;
         _coverEmptyView.alpha = 0;
+        HDWeakSelf;
+        [_coverEmptyView setReloadClickBlock:^(){
+            if (__weakSelf.hd_emptyBtnClickBlock) {
+                __weakSelf.hd_emptyBtnClickBlock();
+            }
+        }];
     }
     return _coverEmptyView;
 }
@@ -327,55 +368,19 @@
 {
     if (!_coverErrorView) {
         _coverErrorView = [HDCoverSetErrorView new];
-        _coverErrorView.translatesAutoresizingMaskIntoConstraints = NO;
-        _coverErrorView.backgroundColor = [UIColor clearColor];
+//        _coverErrorView.backgroundColor = [UIColor clearColor];
         _coverErrorView.userInteractionEnabled = YES;
         _coverErrorView.alpha = 0;
+        HDWeakSelf;
+        [_coverErrorView setReloadClickBlock:^(){
+            if (__weakSelf.hd_errorBtnClickBlock) {
+                __weakSelf.hd_errorBtnClickBlock();
+            }
+        }];
     }
     return _coverErrorView;
 }
 
-
-#pragma mark - Setters
-
-
-
-#pragma mark - Action Methods
-
-- (void)didTapButton:(id)sender
-{
-    SEL selector = NSSelectorFromString(@"dzn_didTapDataButton:");
-    
-    if ([self.superview respondsToSelector:selector]) {
-        [self.superview performSelector:selector withObject:sender afterDelay:0.0f];
-    }
-}
-
-- (void)removeAllConstraints
-{
-    [self removeConstraints:self.constraints];
-}
-
-
-#pragma mark - Auto-Layout Configuration
-
-- (void)setupConstraints
-{
-    // First, configure the content view constaints
-    // The content view must alway be centered to its superview
-    NSLayoutConstraint *centerXConstraint = [self equallyRelatedConstraintWithView:self.curCoverView attribute:NSLayoutAttributeCenterX];
-    NSLayoutConstraint *centerYConstraint = [self equallyRelatedConstraintWithView:self.curCoverView attribute:NSLayoutAttributeCenterY];
-    
-    [self addConstraint:centerXConstraint];
-    [self addConstraint:centerYConstraint];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[curCoverView]|" options:0 metrics:nil views:@{@"curCoverView": self.curCoverView}]];
-    
-    // When a custom offset is available, we adjust the vertical constraints' constants
-    if (self.verticalOffset != 0 && self.constraints.count > 0) {
-        centerYConstraint.constant = self.verticalOffset;
-    }
-
-}
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
@@ -413,7 +418,7 @@
     if (!view)
     {
         view = [HDCoverSetView new];
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        view.backgroundColor = [UIColor whiteColor];
         view.hidden = YES;
         [self setCoverSetView:view];
     }
@@ -424,11 +429,7 @@
     [self hd_setAssociatedRetainObject:coverSetView key:@selector(coverSetView)];
 }
 
-- (void) hd_coverType:(HDTableViewCoverType)coverType{
-    if (self.hd_tableViewCoverType==coverType) {
-        return;
-    }
-    
+- (void)hd_coverType:(HDTableViewCoverType)coverType{
     if (coverType==HDTableViewCoverTypeNull) {
         [self.coverSetView removeFromSuperview];
         [self setCoverSetView:nil];
@@ -436,38 +437,48 @@
     }else{
         [self.coverSetView configCoverType:coverType];
         if (!self.coverSetView.superview) {
-            // Send the view all the way to the back, in case a header and/or footer is present, as well as for sectionHeaders or any other content
 //            [self insertSubview:self.coverSetView atIndex:0];
             [self addSubview:self.coverSetView];
 
         }
         self.coverSetView.hidden = NO;
         self.coverSetView.clipsToBounds = YES;
-        [self.coverSetView setupConstraints];
+        [self.coverSetView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.equalTo(self);
+            make.edges.equalTo(self);
+        }];
         HDWeakSelf;
         [UIView performWithoutAnimation:^{
             HDStrongSelf;
-            [_self.coverSetView layoutIfNeeded];
+            [self.coverSetView layoutIfNeeded];
         }];
         self.scrollEnabled = NO;
-
     }
 }
 
 - (void) hd_coverLoading{
-    [self hd_coverType:HDTableViewCoverTypeLoading];
+    self.hd_tableViewCoverType = HDTableViewCoverTypeLoading;
 }
 
 - (void) hd_coverEmpty{
-    [self hd_coverType:HDTableViewCoverTypeEmpty];
+    self.hd_tableViewCoverType = HDTableViewCoverTypeEmpty;
 }
 
 - (void) hd_coverError{
-    [self hd_coverType:HDTableViewCoverTypeError];
+    self.hd_tableViewCoverType = HDTableViewCoverTypeError;
 }
 
 - (void) hd_coverDismiss{
-    [self hd_coverType:HDTableViewCoverTypeNull];
+    self.hd_tableViewCoverType = HDTableViewCoverTypeNull;
+}
+- (void)hd_coverEmpty:(HDTMVoidBlock)emptyBtnClickBlock{
+    self.coverSetView.hd_emptyBtnClickBlock = emptyBtnClickBlock;
+    [self hd_coverEmpty];
+}
+
+- (void)hd_coverError:(HDTMVoidBlock)errorBtnClickBlock{
+    self.coverSetView.hd_errorBtnClickBlock = errorBtnClickBlock;
+    [self hd_coverError];
 }
 /**
  *  GET

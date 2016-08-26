@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HDTableViewMakerDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4AC20BAC7E22E64D9F0765C52BD6B3D7</key>
+		<key>401F78C3071223A1B230E91B28C76333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,22 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>736E57AD5AEFAAF68D47AE4E8FCB8F68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>761A82DEB1906CE772311C255DB891E6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AF8EBC55FC196F35A0F9BB98BF1F747F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C836FC9134E0286D3F26881F7C172515</key>
+		<key>B8679B5E750709D1B546C9A397E4E8BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

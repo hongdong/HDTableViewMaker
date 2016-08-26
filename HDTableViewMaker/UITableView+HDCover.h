@@ -21,10 +21,6 @@ typedef NS_ENUM(NSInteger,HDTableViewCoverType) {
 
 @property (nonatomic, assign) HDTableViewCoverType hd_tableViewCoverType;
 
-@property (nonatomic, copy) HDTMVoidBlock hd_emptyBtnClickBlock;
-
-@property (nonatomic, copy) HDTMVoidBlock hd_errorBtnClickBlock;
-
 - (void) hd_coverLoading;
 
 - (void) hd_coverEmpty;
@@ -36,4 +32,5 @@ typedef NS_ENUM(NSInteger,HDTableViewCoverType) {
 - (void) hd_coverEmpty:(HDTMVoidBlock)emptyBtnClickBlock;
 
 - (void) hd_coverError:(HDTMVoidBlock)errorBtnClickBlock;
+
 @end

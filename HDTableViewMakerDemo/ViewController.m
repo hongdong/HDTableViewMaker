@@ -44,16 +44,16 @@
                 
     }] hd_addAllFresh:^(HDFreshType freshType) {
         [_mainTable hd_endFreshing:NO];
-//        if (freshType == HDFreshTypeFresh) {
-//            self.dataArr = nil;
-//            [_mainTable reloadData];   //下面一行代码会自动调用table的reload
-//            [_mainTable hd_coverEmpty];
-//        }else{
-//            
-//        }
+        if (freshType == HDFreshTypeFresh) {
+            [_mainTable hd_coverEmpty:^{
+                 [_mainTable hd_coverDismiss];
+            }];
+        }else{
+            [_mainTable hd_coverError:^{
+                [_mainTable hd_coverDismiss];
+            }];
+        }
     }];
- 
-    [_mainTable hd_coverLoading];
     
 //静态方式的应用
 //    [_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableMaker) {

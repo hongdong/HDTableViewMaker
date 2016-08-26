@@ -12,4 +12,5 @@
 @interface NSBundle (HDTableViewMaker)
 + (instancetype)hd_tableViewMakerBundle;
 + (UIImage *)hd_emptyImage;
++ (UIImage *)hd_errorImage;
 @end
