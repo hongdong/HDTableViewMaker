@@ -30,7 +30,9 @@
 // 动态方式的应用
     [[_mainTable hd_tableViewMaker:^(HDTableViewMaker *tableViewMaker) {
         
-        [tableViewMaker.hd_sectionCountBk(HDSectionCount(return 1;)) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
+        [tableViewMaker.hd_scrollViewDidScroll(^(UIScrollView *scrollView){
+            NSLog(@"nihao");
+        }).hd_sectionCountBk(HDSectionCount(return 1;)) hd_sectionMaker:^(HDSectionMaker *sectionMaker) {
             
             [sectionMaker.hd_dataArr(HDDataArr(self.dataArr)) hd_cellMaker:^(HDCellMaker *cellMaker) {
                 cellMaker
@@ -43,14 +45,15 @@
         }];
                 
     }] hd_addAllFresh:^(HDFreshType freshType) {
-        [_mainTable hd_endFreshing:NO];
+        [_mainTable hd_endFreshing:YES];
         if (freshType == HDFreshTypeFresh) {
             [_mainTable hd_coverEmpty:^{
                  [_mainTable hd_coverDismiss];
             }];
         }else{
+            _dataArr = nil;
+            [_mainTable reloadData];
             [_mainTable hd_coverError:^{
-                [_mainTable hd_coverDismiss];
             }];
         }
     }];

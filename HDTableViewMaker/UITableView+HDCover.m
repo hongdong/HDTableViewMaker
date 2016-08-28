@@ -33,6 +33,18 @@
     return self;
 }
 
+- (void)didMoveToSuperview
+{
+    self.frame = self.superview.bounds;
+    
+    void(^fadeInBlock)(void) = ^{self.alpha = 1.0;};
+    
+    [UIView animateWithDuration:0.25
+                     animations:fadeInBlock
+                     completion:NULL];
+    
+}
+
 - (void)setupConstraints
 {
     
@@ -128,6 +140,18 @@
         [self setupConstraints];
     }
     return self;
+}
+
+- (void)didMoveToSuperview
+{
+    self.frame = self.superview.bounds;
+    
+    void(^fadeInBlock)(void) = ^{self.alpha = 1.0;};
+    
+    [UIView animateWithDuration:0.25
+                     animations:fadeInBlock
+                     completion:NULL];
+    
 }
 
 - (void)setupConstraints
@@ -241,6 +265,18 @@
     return _activityView;
 }
 
+- (void)didMoveToSuperview
+{
+    self.frame = self.superview.bounds;
+    
+    void(^fadeInBlock)(void) = ^{self.alpha = 1.0;};
+    
+    [UIView animateWithDuration:0.25
+                     animations:fadeInBlock
+                     completion:NULL];
+    
+}
+
 @end
 
 
@@ -291,18 +327,6 @@
     }
 }
 
-- (void)didMoveToSuperview
-{
-    self.frame = self.superview.bounds;
-    
-    void(^fadeInBlock)(void) = ^{self.curCoverView.alpha = 1.0;};
-    
-    [UIView animateWithDuration:0.25
-                     animations:fadeInBlock
-                     completion:NULL];
-
-}
-
 
 #pragma mark - Getters
 
@@ -340,7 +364,7 @@
 {
     if (!_coverLoadingView) {
         _coverLoadingView = [HDCoverSetLodingView new];
-//        _coverLoadingView.backgroundColor = [UIColor clearColor];
+        _coverLoadingView.backgroundColor = [UIColor clearColor];
         _coverLoadingView.userInteractionEnabled = YES;
         _coverLoadingView.alpha = 0;
     }
@@ -351,7 +375,7 @@
 {
     if (!_coverEmptyView) {
         _coverEmptyView = [HDCoverSetEmptyView new];
-//        _coverEmptyView.backgroundColor = [UIColor whiteColor];
+        _coverEmptyView.backgroundColor = [UIColor whiteColor];
         _coverEmptyView.userInteractionEnabled = YES;
         _coverEmptyView.alpha = 0;
         HDWeakSelf;
@@ -368,7 +392,7 @@
 {
     if (!_coverErrorView) {
         _coverErrorView = [HDCoverSetErrorView new];
-//        _coverErrorView.backgroundColor = [UIColor clearColor];
+        _coverErrorView.backgroundColor = [UIColor clearColor];
         _coverErrorView.userInteractionEnabled = YES;
         _coverErrorView.alpha = 0;
         HDWeakSelf;
@@ -418,7 +442,7 @@
     if (!view)
     {
         view = [HDCoverSetView new];
-        view.backgroundColor = [UIColor whiteColor];
+        view.backgroundColor = self.backgroundColor;
         view.hidden = YES;
         [self setCoverSetView:view];
     }
@@ -439,17 +463,19 @@
         if (!self.coverSetView.superview) {
 //            [self insertSubview:self.coverSetView atIndex:0];
             [self addSubview:self.coverSetView];
-
+            [self.coverSetView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.size.equalTo(self);
+                make.edges.equalTo(self);
+            }];
         }
+
         self.coverSetView.hidden = NO;
         self.coverSetView.clipsToBounds = YES;
-        [self.coverSetView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.equalTo(self);
-            make.edges.equalTo(self);
-        }];
+
         HDWeakSelf;
         [UIView performWithoutAnimation:^{
             HDStrongSelf;
+            [self.coverSetView setNeedsLayout];
             [self.coverSetView layoutIfNeeded];
         }];
         self.scrollEnabled = NO;
