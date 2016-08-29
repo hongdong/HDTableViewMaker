@@ -17,6 +17,8 @@ typedef void (^CellMakeBlock)(HDCellMaker * cellMaker);
 
 @interface HDSectionData : NSObject
 
+@property(nonatomic, assign) BOOL isStaticCell;
+
 @property(nonatomic, strong) NSMutableArray<HDCellData *> * cellDatas;
 
 @property(nonatomic, weak) UITableView * tableView;

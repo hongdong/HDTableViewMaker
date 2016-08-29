@@ -83,6 +83,10 @@
     
     sectionMakerBlock(sectionMaker);
     
+    if (!sectionMaker.sectionData.isStaticCell) {
+        [sectionMaker.sectionData doCellMakerBlock];
+    }
+    
     [self.sectionDatas addObject:sectionMaker.sectionData];
     
 }

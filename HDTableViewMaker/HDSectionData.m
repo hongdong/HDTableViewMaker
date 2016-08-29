@@ -76,6 +76,9 @@
 }
 
 - (void) doAddCellMakerBlock:(CellMakeBlock)cellMakerBlock{
+    if (!self.isStaticCell) {
+        self.isStaticCell = YES;
+    }
     HDCellMaker * cellMaker = nil;
     cellMaker = [[HDCellMaker alloc] initWithTableView:self.tableView];
     cellMaker.cellData.indexPath = [NSIndexPath indexPathForRow:self.rowCount inSection:self.section];
