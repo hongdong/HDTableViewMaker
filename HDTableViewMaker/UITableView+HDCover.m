@@ -462,10 +462,10 @@
         [self.coverSetView configCoverType:coverType];
         if (!self.coverSetView.superview) {
 //            [self insertSubview:self.coverSetView atIndex:0];
-            [self addSubview:self.coverSetView];
+            [self.superview addSubview:self.coverSetView];
             [self.coverSetView mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.equalTo(self);
-                make.edges.equalTo(self);
+                make.center.equalTo(self);
             }];
         }
 
