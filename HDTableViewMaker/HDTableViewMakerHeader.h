@@ -4,7 +4,7 @@
 #ifndef HDTableViewMakerHeader_h
 #define HDTableViewMakerHeader_h
 
-#define HDTableViewMakerVersion 1.0.7 /*  版本号 */
+#define HDTableViewMakerVersion 1.0.8 /*  版本号 */
 
 #define HDDataArr(__dataArr__) ^(){return __dataArr__;}
 
