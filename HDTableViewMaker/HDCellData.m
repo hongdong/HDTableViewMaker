@@ -51,7 +51,9 @@
 -(CGFloat)rowHeight{
     if (self.isAutoHeight) {
         _rowHeight = [self.tableView fd_heightForCellWithIdentifier:self.cellIdentifier cacheByIndexPath:_indexPath configuration:^(id cell) {
-            self.adapter(cell,self.data,self.indexPath);
+            if (self.adapter) {
+                self.adapter(cell,self.data,self.indexPath);
+            }
         }];
     }
     return _rowHeight;
