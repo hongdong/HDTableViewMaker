@@ -4,19 +4,19 @@
 #ifndef HDTableViewMakerHeader_h
 #define HDTableViewMakerHeader_h
 
-#define HDTableViewMakerVersion 1.0.8 /*  版本号 */
+#define HDTableViewMakerVersion 1.0.9 /*  版本号 */
 
 #define HDDataArr(__dataArr__) ^(){return __dataArr__;}
 
 #define HDCellClass(_cellClass_) [_cellClass_ class]
 
 #define HDAdapter(_adapter_) \
-^(UITableViewCell *cell,id data,NSIndexPath *indexPath){ \
+^(__kindof UITableViewCell *cell,id data,NSIndexPath *indexPath){ \
 _adapter_ \
 }
 
 #define HDEvent(_event_) \
-^(UITableView *tableView,NSIndexPath *indexPath,id data){ \
+^(__kindof UITableView *tableView,NSIndexPath *indexPath,id data){ \
 _event_ \
 }
 
